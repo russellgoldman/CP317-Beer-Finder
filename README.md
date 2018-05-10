@@ -3,7 +3,7 @@
 # Inspiration:
 Have you ever had an idea of what kind of beer you wanted, maybe a lighter beer with hops and a low alcohol content, but you didn’t know what brand would be best linked to your criteria?
 
-Our web application hopes to solve this by asking for search criteria and returning a list of beers that match them in order from most alike to least alike.
+Our web application hopes to solve this by asking for user search criteria and returning a list of beers that match their specifications in order from ***most alike*** to ***least alike***.
 
 # Tools
 ### Front-end:
