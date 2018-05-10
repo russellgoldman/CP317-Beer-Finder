@@ -17,7 +17,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 * **API:** Django GET and POST definitions for accessing/modifying database content
 * **Data Structures:** List, Queue, Stack
 
-### Connection between Front and Backends:
+### Connection between Front and Back-ends:
 * Django has a templating system which allows for the inclusion and rendering of HTML files to our server
 * All CSS and JS files is contained in a special folder named *static* where they can be referenced within the HTML file
 * Django is be responsible for hosting the web application, accessing and modifying our PostgreSQL database, and handling API GET and POST requests from the JS front-end client to access/modify data in the back-end
