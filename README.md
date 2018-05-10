@@ -1,4 +1,4 @@
-# CP317-Beer-Finder
+# CP317 Beer Finder Web Application
 
 # Inspiration:
 Have you ever had an idea of what kind of beer you wanted, maybe a lighter beer with hops and a low alcohol content, but you didn’t know what brand would be best linked to your criteria?
