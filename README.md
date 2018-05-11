@@ -1,6 +1,6 @@
 # CP317 Beer Finder Web App
 
-## Inspiration:
+## Inspiration
 Have you ever had an idea of what kind of beer you wanted, maybe a lighter beer with hops and a low alcohol content, but you didn’t know what brand would be best linked to your criteria?
 
 Our web application hopes to solve this by asking for user search criteria and returning a list of beers that match their specifications in order from ***most alike*** to ***least alike***.
@@ -24,7 +24,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 * JS is responsible for manipulating the HTML Document Object Model (DOM) and formulating front-end logic
 * CSS and Bootstrap are used for styling
 
-## Installation: 
+## Installation
 To run the program, you will need to unfreeze the virtual environment from the requirements.txt file and install it on your local system. To do so, enter the following in the terminal.
 ```shell
 pip3 install -r requirements.txt
