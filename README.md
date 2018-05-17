@@ -17,6 +17,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 * **Database:** PostgreSQL (built-in with Django)
 * **API:** Django GET and POST definitions for accessing/modifying database content
 * **Data Structures:** List, Queue, Stack
+* **Testing:** PyTest
 
 #### Connection between Front and Back-ends:
 * Django has a templating system called Jinga which allows for the dynamic conditional rendering of HTML files
