@@ -8,7 +8,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 
 ## Tools:
 #### Front-end:
-* **Scripting:** Jinga (Django templating) / JavaScript
+* **Scripting:** Django templating language (DTL) / JavaScript
 * **Structure:** HTML
 * **Styling:** CSS / Bootstrap
 
