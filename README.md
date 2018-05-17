@@ -22,7 +22,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 #### Connection between Front and Back-ends:
 * Django has a templating system called Jinga which allows for the dynamic conditional rendering of HTML files
 * All CSS and JS files are contained in a special folder named *static* where they can be referenced within the HTML file
-* Django is responsible for hosting the web application, accessing and modifying our PostgreSQL database, and handling API GET and POST requests from the front-end client to access/modify data in the back-end
+* Django is responsible for hosting the web application, accessing and modifying our PostgreSQL database, and with the Django REST Framework extension, it can handle API requests so the front-end client can access/modify data from our back-end
 * JS is responsible for further manipulation of the HTML Document Object Model (DOM) that cannot be handed by DTL
 * CSS and Bootstrap are used for styling
 
