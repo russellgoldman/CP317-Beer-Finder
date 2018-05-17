@@ -2,7 +2,7 @@
 
 ## Inspiration:
 Inspiration:
-Have you ever had an idea of what kind of beer you wanted, maybe an American Pale Ale with a 6.20% alcohol content, but you didn’t know what brand would be best linked to your criteria?
+Have you ever had an idea of what kind of beer you wanted, maybe a dark yellow beer with a medium body and an approximately 5% alcohol content, but you didn’t know what brand would be best linked to your criteria? 
 
 Our web application hopes to solve this by asking for user search criteria and returning a list of beers that match their specifications in order from ***most alike*** to ***least alike***.
 
