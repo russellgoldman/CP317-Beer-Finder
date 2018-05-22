@@ -26,6 +26,42 @@ Our web application hopes to solve this by asking for user search criteria and r
 * JS is responsible for further manipulation of the HTML Document Object Model (DOM) that cannot be handed by DTL
 * CSS and Bootstrap are used for styling
 
+## Team Members
+### Lead Developers
+- Russell Goldman
+- Tauqeer Choudhry
+- Don Vo
+
+### Django Templates
+- Abdullahi Abdullahi
+- Ziheng Wang (Isaac)
+- Zhixian Li (Catherine)
+- Abdisalan Mohamed Abdi
+
+### Bootstrap / CSS Styling 
+- Ni Yang (Nina)
+- Yuting He
+- Franchesco Livado
+
+### Modellers and Database
+- Yanda Tao
+- David Moreno
+- Sirong Liu
+- Yu He
+- Peiyu Lu (Lucy)
+
+### Views and Routing
+- Abraham Banka
+- Zizheng Huang
+- Mengdan Wan
+- Jerry Haq
+
+### API Developers
+- Jeremy Lickers
+- Matthew Wong
+- Huai Yao Hu (Walter)
+- Wen Han
+
 ## Installation:
 To run the program, you will need to unfreeze the virtual environment from the requirements.txt file and install it on your local system. To do so, enter the following in the terminal.
 ```shell
