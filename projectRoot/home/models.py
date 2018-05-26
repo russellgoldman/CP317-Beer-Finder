@@ -23,19 +23,19 @@ class Beer(models.Model):
         return self.beer_name
 
 
-class TasteOptions(models.Model):
+class TasteOption(models.Model):
     taste_option_name = models.CharField(max_length=50)
     # reference to the Beer model (many-to-many)
-    beer = models.ManyToManyField(Beer)
+    beer = models.ManyToManyField(Beer, blank=True)
 
     def __str__(self):
         return self.taste_option_name
 
 
-class ContainerOptions(models.Model):
+class ContainerOption(models.Model):
     container_option_name = models.CharField(max_length=20)
     # reference to the Beer model (many-to-many)
-    beer = models.ManyToManyField(Beer)
+    beer = models.ManyToManyField(Beer, blank=True)
 
     def __str__(self):
         return self.container_option_name
