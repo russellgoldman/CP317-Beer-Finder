@@ -11,12 +11,22 @@ class Brand(models.Model):
         return self.brand_name
 
 
+class BodyType(models.Model):
+    body_type_name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.body_type_name
+
+
 class Beer(models.Model):
     beer_name = models.CharField(max_length=50)
     colour_srm_value = models.FloatField(default=0.0)
     alcohol_by_volume = models.FloatField(default=0.0)
     # reference to the Brand model (one-to-one)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    # reference to the BodyType model (one-to-one)
+    # null=True to allow for Beer that has no BodyType matched to it yet
+    body_type = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.beer_name
@@ -30,16 +40,6 @@ class Taste(models.Model):
 
     def __str__(self):
         return self.taste_name
-
-
-class BodyType(models.Model):
-    body_type_name = models.CharField(max_length=20)
-    # reference to the Beer model (many-to-many)
-    # blank=True to allow for Body that has no Beer matched to it yet
-    beer = models.ManyToManyField(Beer, blank=True)
-
-    def __str__(self):
-        return self.body_type_name
 
 
 class ContainerStyle(models.Model):
