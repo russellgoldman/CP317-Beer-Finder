@@ -22,9 +22,9 @@ class Beer(models.Model):
     beer_name = models.CharField(max_length=50)
     colour_srm_value = models.FloatField(default=0.0)
     alcohol_by_volume = models.FloatField(default=0.0)
-    # reference to the Brand model (one-to-one)
+    # reference to the Brand model (one-to-many, i.e. One Brand associated with One to Many Beers)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    # reference to the BodyType model (one-to-one)
+    # reference to the BodyType model (one-to-many)
     # null=True to allow for Beer that has no BodyType matched to it yet
     body_type = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
 
