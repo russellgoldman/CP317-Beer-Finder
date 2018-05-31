@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bae7bc1-f662-457e-be17-dd60765e10cb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectRoot/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/projectRoot/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectRoot/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectRoot/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectRoot/home/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projectRoot/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectRoot/home/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +17,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projectRoot/home/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="364">
+              <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -418,8 +415,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectRoot/home/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="364">
+          <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
         </state>
       </provider>
     </entry>

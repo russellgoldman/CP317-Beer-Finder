@@ -60,4 +60,4 @@ class Rating(models.Model):
     beer = models.ForeignKey(Beer, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.ratingValue
+        return str(self.ratingValue)
