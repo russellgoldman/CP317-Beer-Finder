@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from datetime import datetime
 
 
 class Brand(models.Model):
@@ -18,6 +17,20 @@ class BodyType(models.Model):
         return self.bodyTypeName
 
 
+class Taste(models.Model):
+    tasteName = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.tasteName
+
+
+class ContainerType(models.Model):
+    containerTypeName = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.containerTypeName
+
+
 class Beer(models.Model):
     beerName = models.CharField(max_length=50)
     colourValue = models.FloatField(default=0.0)
@@ -27,34 +40,20 @@ class Beer(models.Model):
     # reference to the BodyType model (many-to-one)
     # null=True to allow for Beer that has no BodyType matched to it yet
     bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
+    # reference to the ContainerType model (many-to-many)
+    # blank=True to allow for Beer that has no ContainerType matched to it yet
+    containerType = models.ManyToManyField(ContainerType, blank=True)
+    # reference to the Taste model (many-to-many)
+    taste = models.ManyToManyField(Taste, blank=True)
 
     def __str__(self):
         return self.beerName
 
 
-class Taste(models.Model):
-    tasteName = models.CharField(max_length=50)
-    # reference to the Beer model (many-to-many)
-    # blank=True to allow for Taste that has no Beer matched to it yet
-    beer = models.ManyToManyField(Beer, blank=True)
-
-    def __str__(self):
-        return self.tasteName
-
-
-class ContainerType(models.Model):
-    containerTypeName = models.CharField(max_length=20)
-    # reference to the Beer model (many-to-many)
-    # blank=True to allow for ContainerStyle that has no Beer matched to it yet
-    beer = models.ManyToManyField(Beer, blank=True)
-
-    def __str__(self):
-        return self.container_style_name
-
-
 class Rating(models.Model):
     ratingValue = models.IntegerField(default=0)
-    authorName = models.CharField(max_length=50)
+    raterName = models.CharField(max_length=50)
+    date = models.DateTimeField(default=datetime.now, blank=True)
     # reference to the Beer model (one-to-one)
     # null=True to allow for Beer without Rating
     beer = models.ForeignKey(Beer, on_delete=models.CASCADE, null=True)
