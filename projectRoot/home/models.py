@@ -1,62 +1,52 @@
 from django.db import models
-from datetime import datetime
+
+# Create your models here.
 
 
 class Brand(models.Model):
-    brandName = models.CharField(max_length=50)
-    countryOfOrigin = models.CharField(max_length=50)
+    brand_name = models.CharField(max_length=50)
+    country_of_origin = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.brandName
+        return self.brand_name
 
 
 class BodyType(models.Model):
-    bodyTypeName = models.CharField(max_length=20)
+    body_type_name = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.bodyTypeName
-
-
-class Taste(models.Model):
-    tasteName = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.tasteName
-
-
-class ContainerType(models.Model):
-    containerTypeName = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.containerTypeName
+        return self.body_type_name
 
 
 class Beer(models.Model):
-    beerName = models.CharField(max_length=50)
-    colourValue = models.FloatField(default=0.0)
-    alcoholVolume = models.FloatField(default=0.0)
-    # reference to the Brand model (many-to-one)
+    beer_name = models.CharField(max_length=50)
+    colour_srm_value = models.FloatField(default=0.0)
+    alcohol_by_volume = models.FloatField(default=0.0)
+    # reference to the Brand model (one-to-one)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    # reference to the BodyType model (many-to-one)
+    # reference to the BodyType model (one-to-one)
     # null=True to allow for Beer that has no BodyType matched to it yet
-    bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
-    # reference to the ContainerType model (many-to-many)
-    # blank=True to allow for Beer that has no ContainerType matched to it yet
-    containerType = models.ManyToManyField(ContainerType, blank=True)
-    # reference to the Taste model (many-to-many)
-    taste = models.ManyToManyField(Taste, blank=True)
+    body_type = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.beerName
+        return self.beer_name
 
 
-class Rating(models.Model):
-    ratingValue = models.IntegerField(default=0)
-    raterName = models.CharField(max_length=50)
-    date = models.DateTimeField(default=datetime.now, blank=True)
-    # reference to the Beer model (one-to-one)
-    # null=True to allow for Beer without Rating
-    beer = models.ForeignKey(Beer, on_delete=models.CASCADE, null=True)
+class Taste(models.Model):
+    taste_name = models.CharField(max_length=50)
+    # reference to the Beer model (many-to-many)
+    # blank=True to allow for Taste that has no Beer matched to it yet
+    beer = models.ManyToManyField(Beer, blank=True)
 
     def __str__(self):
-        return str(self.ratingValue)
+        return self.taste_name
+
+
+class ContainerStyle(models.Model):
+    container_style_name = models.CharField(max_length=20)
+    # reference to the Beer model (many-to-many)
+    # blank=True to allow for ContainerStyle that has no Beer matched to it yet
+    beer = models.ManyToManyField(Beer, blank=True)
+
+    def __str__(self):
+        return self.container_style_name
