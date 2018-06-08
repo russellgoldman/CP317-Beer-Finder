@@ -35,6 +35,9 @@ class Beer(models.Model):
     beerName = models.CharField(max_length=50)
     colourValue = models.FloatField(default=0.0)
     alcoholVolume = models.FloatField(default=0.0)
+    canPrice = models.FloatField(default=0.0, blank=True, null=True)
+    bottlePrice = models.FloatField(default=0.0, blank=True, null=True)
+    kegPrice = models.FloatField(default=0.0, blank=True, null=True)
     # reference to the Brand model (many-to-one)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     # reference to the BodyType model (many-to-one)
@@ -54,6 +57,7 @@ class Rating(models.Model):
     ratingValue = models.IntegerField(default=0)
     raterName = models.CharField(max_length=50)
     date = models.DateTimeField(default=datetime.now, blank=True)
+    reviewText = models.TextField(blank=True, null=True)
     # reference to the Beer model (one-to-one)
     # null=True to allow for Beer without Rating
     beer = models.ForeignKey(Beer, on_delete=models.CASCADE, null=True)
