@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'projectRoot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hatfznjj',
+        'USER': 'hatfznjj',
+        'PASSWORD': '7wJAP-fplru-IolhlRB94uTxLUb269ab',
+        'HOST': 'stampy.db.elephantsql.com',
+        'PORT': '5432'
     }
 }
 
