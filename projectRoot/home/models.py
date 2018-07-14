@@ -33,7 +33,7 @@ class ContainerType(models.Model):
 
 class Beer(models.Model):
     beerName = models.CharField(max_length=50)
-    colourValue = models.FloatField(default=0.0)
+    colourHex = models.CharField(max_length=10)
     alcoholVolume = models.FloatField(default=0.0)
     canPrice = models.FloatField(default=0.0, blank=True, null=True)
     bottlePrice = models.FloatField(default=0.0, blank=True, null=True)
@@ -55,7 +55,6 @@ class Beer(models.Model):
 
 class Rating(models.Model):
     ratingValue = models.IntegerField(default=0)
-    raterName = models.CharField(max_length=50)
     date = models.DateTimeField(default=datetime.now, blank=True)
     reviewText = models.TextField(blank=True, null=True)
     # reference to the Beer model (one-to-one)
