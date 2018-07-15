@@ -1,0 +1,56 @@
+/* copy*/
+.navbar {
+    background-color: #cccccc;
+}
+#bn{
+	font-size: 3em;
+	color:white;
+	font-family: 'Raleway', sans-serif;
+}
+
+
+/* copy*/
+
+#con{
+	padding-top:50px;
+	padding-bottom: 100px;
+}
+
+#type,#color,#country{
+margin-top: -10px;
+}
+
+#color, #country{
+	margin-right:10px;
+}
+
+.my-4{
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+.butt{
+	padding-left:350px;
+}
+
+.btn:focus{
+	background-color: #f2f2f2;
+}
+
+#jj{
+	padding-top: -10px;
+}
+
+/* copy*/
+#page-wrap div {
+	display:table-cell;
+	width:25%;
+	padding:2%;
+	font-size:1.0vw;
+	word-wrap:break-word;
+}
+
+#bg{
+	background-color:#f2f2f2;
+}
+/* copy*/

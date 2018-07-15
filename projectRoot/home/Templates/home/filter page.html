@@ -1,0 +1,164 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<!--title and icon-->
+	<title> Beer Buddy - Add Beer Page </title>
+	<link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
+	
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styling/filter page.css">
+	
+</head>
+
+	<body>
+		
+<!--navbar-->
+
+<nav class="navbar navbar-expand-lg navbar-light highlight" >
+  <a class="navbar-brand list" id="bn"><img src="pic/logo.png" width="60" height="40" alt="">Beer Buddy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav ml-auto">
+	  <li class="nav-item active">
+		<!-- INLINE STYLING TO CHANGE THE FOLLOWING FONTS TO WHITE, UNSURE HOW TO USE SELECTOR TO AFFECT ALL ANCHOR TAGS AT ONCE-->
+		<a class="nav-link" href="home page.html">Home<span class="sr-only">(current)</span></a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link" href="top picks.html" id= "bb">Top Picks<span class="sr-only">(current)</span></a>
+	  </li>
+	  <li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="cc">
+		  Article
+		</a>
+		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="article page.html">Ariticle: NO.1</a>
+		  <a class="dropdown-item" href="article page.html">Ariticle: NO.1</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#" id="dd">Something else here</a>
+		
+		</div>
+		<li class="nav-item">
+		<a class="nav-link" href="library page.html">All Products<span class="sr-only">(current)</span></a>
+	  </li>
+	  </li>
+	</ul>
+  </div>
+</nav>
+
+
+<!-- Carousel Filters -->
+<div class="container" id="con">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+
+	  <div class="jumbotron">
+          <h1 class="display-4" style="text-align:center;"><img src="pic/type.png" width="60" height="60" id="type">TYPE</h1>
+          <hr class="my-4" id="hr1">
+		  <div class="butt">
+          <button type="button" class="btn btn-outline-warning btn-lg">Stout</button>
+          <button type="button" class="btn btn-outline-danger btn-lg">Lager</button>
+          <button type="button" class="btn btn-outline-info btn-lg">Ale</button>
+          <button type="button" class="btn btn-outline-success btn-lg">Malt</button>
+		  </div>
+      </div> 
+
+    </div>
+    <div class="carousel-item">
+    
+      
+	  <div class="jumbotron">
+          <h1 class="display-4" style="text-align:center;"><img src="pic/color.png" width="55" height="55" id="color">COLOUR</h1>
+
+          <hr class="my-4">
+		  <div class="butt">
+          <button type="button" class="btn btn-outline-dark btn-lg" >Black</button>
+          <button type="button" class="btn btn-outline-warning btn-lg">Yellow</button>
+          <button type="button" class="btn btn-outline-danger btn-lg">Amber</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg">Brown</button>
+		  </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+        
+      <div class="jumbotron">
+          <h1 class="display-4"style="text-align:center;"><img src="pic/country.png" width="55" height="55" id="country">COUNTRY</h1>
+
+          <hr class="my-4">
+		  <div class="butt">
+          <button type="button" class="btn btn-outline-dark btn-lg" role="button" aria-pressed="true">Germany</button>
+          <button type="button" class="btn btn-outline-info btn-lg">Canada</button>
+          <button type="button" class="btn btn-outline-danger btn-lg">USA</button>
+          <button type="button" class="btn btn-outline-success btn-lg">Mexico</button>
+		  </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	<span style="color:black; font-size: 20px;">Previous </span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span style="color:black;"> Next</span>
+	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    
+	<span class="sr-only">Next</span>
+	
+  </a>
+  
+</div>
+<button type="button" class="btn btn-primary btn-lg btn-block">Search</button>
+</div>
+
+
+<!-- footer -->
+<div class="container-fluid" id="bg">
+<div class="container">
+<div id="page-wrap">
+	<div id="bb">
+		<h5 style="text-align:center;">Beer Buddy</h5>
+		<p style="text-align:center;"><a href="home page.html">Home</a></p>
+		<p style="text-align:center;"><a href="top picks.html">Top Picks</a></p>
+		<p style="text-align:center;"><a href="add beer.html">Add a Beer</a></p>
+	</div>
+
+	<div id="about">
+		<h5 style="text-align:center;">About</h5>
+		<p style="text-align:center;"><a href="#">About Us</a></p>
+		<p style="text-align:center;"><a href="#">Privacy & Security</a></p>
+		<p style="text-align:center;"><a href="#">FAQ</a></p>
+	</div>
+
+	<div id="contant">
+		<h5 style="text-align:center;">Contact</h5>
+		<p style="text-align:center;">Have a question or feedback? Contact me!</p>
+		<p style="text-align:center;"><object type="image/svg+xml" data="pic/email-icon.svg" weight=15px; height=15px;></object><a href="" title="Contact me!"> Contact</a></p>
+	</div>
+	<div id="follow">
+		<h5 style="text-align:center;">Follow Us</h5>
+		<p style="text-align:center;"><object type="image/svg+xml" data="pic/fb-icon.svg" weight=15px; height=15px;></object><a href="#"> Facebook</a></p>
+		<p style="text-align:center;"><object type="image/svg+xml" data="pic/twi-icon.svg" weight=15px; height=15px;></object><a href="#"> Twitter</a></p>
+	</div>
+</div>
+
+<div id="page-box">
+	<p style="text-align:center;"> ©2018 Beer Buddy. All rights reserved</p>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

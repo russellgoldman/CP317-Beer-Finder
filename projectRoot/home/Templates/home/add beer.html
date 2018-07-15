@@ -1,0 +1,182 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<!--title and icon-->
+	<title> Beer Buddy - Add Beer Page </title>
+	<link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
+	
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styling/add beer page.css">
+	
+</head>
+
+	<body>
+		
+<!--navbar-->
+
+<nav class="navbar navbar-expand-lg navbar-light highlight" >
+  <a class="navbar-brand list" id="bn"><img src="pic/logo.png" width="60" height="40" alt="">Beer Buddy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav ml-auto">
+	  <li class="nav-item active">
+		<!-- INLINE STYLING TO CHANGE THE FOLLOWING FONTS TO WHITE, UNSURE HOW TO USE SELECTOR TO AFFECT ALL ANCHOR TAGS AT ONCE-->
+		<a class="nav-link" href="home page.html">Home<span class="sr-only">(current)</span></a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link" href="top picks.html" id= "bb">Top Picks<span class="sr-only">(current)</span></a>
+	  </li>
+	  <li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="cc">
+		  Article
+		</a>
+		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="article page.html">Ariticle: NO.1</a>
+		  <a class="dropdown-item" href="article page.html">Ariticle: NO.1</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#" id="dd">Something else here</a>
+		
+		</div>
+		<li class="nav-item">
+		<a class="nav-link" href="library page.html">All Products<span class="sr-only">(current)</span></a>
+	  </li>
+	  </li>
+	</ul>
+  </div>
+</nav>
+
+<div class="container" id="con">
+
+	<div class="input-group mb-3" id="name">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Name:</span>
+	</div>
+	<input type="text" class="form-control" placeholder="Name of the Beer" aria-label="Username" aria-describedby="basic-addon1">
+	</div>
+
+	<div class="input-group mb-3" id="Origin">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Origin:</span>
+	</div>
+	<input type="text" class="form-control" placeholder="Country of the Beer" aria-label="Username" aria-describedby="basic-addon1">
+	</div>
+	
+	<div class="input-group mb-3" id="ACL">
+	<div class="input-group-prepend">
+    <span class="input-group-text">ACL</span>
+	</div>
+	<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+	<div class="input-group-append">
+    <span class="input-group-text">%</span>
+	</div>
+	</div>
+	
+	
+	
+	<div class="input-group mb-3" id="color">
+	<div class="input-group-prepend">
+    <button type="button" class="btn btn-outline-secondary">Action</button>
+    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Amber</a>
+      <a class="dropdown-item" href="#">Blonde</a>
+	  <a class="dropdown-item" href="#">Brown</a>
+	  <a class="dropdown-item" href="#">Cream</a>
+	  <a class="dropdown-item" href="#">Dark</a>
+	  <a class="dropdown-item" href="#">Fruit</a>
+	  <a class="dropdown-item" href="#">Golden</a>
+	  <a class="dropdown-item" href="#">Honey</a>
+	  <a class="dropdown-item" href="#">India Pale Ale</a>
+	  <a class="dropdown-item" href="#">Light</a>
+	  <a class="dropdown-item" href="#">Pale</a>
+	  <a class="dropdown-item" href="#">Pilsner</a>
+	  <a class="dropdown-item" href="#">Red</a>
+	  <a class="dropdown-item" href="#">Strong</a>
+	  <a class="dropdown-item" href="#">Wheat</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Unkown</a>
+    </div>
+	</div>
+	<input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+	</div>
+	
+	<div class="input-group mb-3" id="Type">
+	<input type="text" class="form-control" aria-label="Text input with dropdown button">
+	<div class="input-group-append">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Ales</a>
+      <a class="dropdown-item" href="#">Lagers</a>
+      <a class="dropdown-item" href="#">Stouts & Porters</a>
+	  <a class="dropdown-item" href="#">Malts</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Unkown</a>
+    </div>
+	</div>
+	</div>
+
+	<img src="pic/add_photo_icon.svg" weight=45px; height=45px;></img>
+	<div class="input-group mb-3">
+	<div class="input-group-prepend">
+    <span class="input-group-text">Add a photo </span>
+	</div>
+	<div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+	</div>
+	</div>
+	
+	<div class="form-group">
+    <label for="exampleFormControlTextarea1">Details:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	</div>
+
+	<button type="button" class="btn btn-outline-primary">Submit</button>
+</div>
+
+
+	<!-- footer -->
+<div class="container-fluid" id="bg">
+<div class="container">
+<div id="page-wrap">
+	<div id="bb">
+		<h5 style="text-align:center;">Beer Buddy</h5>
+		<p style="text-align:center;"><a href="home page.html">Home</a></p>
+		<p style="text-align:center;"><a href="top picks.html">Top Picks</a></p>
+		<p style="text-align:center;"><a href="add beer.html">Add a Beer</a></p>
+	</div>
+
+	<div id="about">
+		<h5 style="text-align:center;">About</h5>
+		<p style="text-align:center;"><a href="#">About Us</a></p>
+		<p style="text-align:center;"><a href="#">Privacy & Security</a></p>
+		<p style="text-align:center;"><a href="#">FAQ</a></p>
+	</div>
+
+	<div id="contant">
+		<h5 style="text-align:center;">Contact</h5>
+		<p style="text-align:center;">Have a question or feedback? Contact me!</p>
+		<p style="text-align:center;"><object type="image/svg+xml" data="pic/email-icon.svg" weight=15px; height=15px;></object><a href="" title="Contact me!"> Contact</a></p>
+	</div>
+	<div id="follow">
+		<h5 style="text-align:center;">Follow Us</h5>
+		<p style="text-align:center;"><object type="image/svg+xml" data="pic/fb-icon.svg" weight=15px; height=15px;></object><a href="#"> Facebook</a></p>
+		<p style="text-align:center;"><object type="image/svg+xml" data="pic/twi-icon.svg" weight=15px; height=15px;></object><a href="#"> Twitter</a></p>
+	</div>
+</div>
+
+<div id="page-box">
+	<p style="text-align:center;"> ©2018 Beer Buddy. All rights reserved</p>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

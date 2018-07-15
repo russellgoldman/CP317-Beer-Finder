@@ -1,0 +1,95 @@
+/* copy*/
+.navbar {
+    background-color: #cccccc;
+}
+#bn{
+	font-size: 3em;
+	color:white;
+	font-family: 'Raleway', sans-serif;
+}
+/* copy*/
+
+.picks {
+	display: block;
+	text-align: left;
+	margin: 12px;
+	background-color: #ffffff;
+	border: solid 1px;
+}
+
+#p1 {
+	margin-top: 30px;
+	border-color: #ff0066;
+}
+
+#p2 {
+	border-color:#33cccc;
+}
+
+#p3 {
+	border-color:#ffcc00;
+}
+
+#p4 {
+	border-color:#00b33c;
+}
+
+#p5 {
+	border-color:#3399ff;
+}
+
+#p6 {
+	border-color:#cccccc;
+	margin-bottom: 45px;
+}
+
+h1 {
+	color: black;
+}
+
+
+#rank {
+	display: table-cell;
+	text-align: center;
+	width: 20%;
+	padding: 30px;
+}
+
+.t1info {
+	display: table-cell;
+	width: 25%;
+	padding-left: 30px;
+}
+
+.img {
+	display: table-cell;
+	width: 20%;
+	padding: 10px;
+}
+
+.info {
+	display: table-cell;
+	padding-bottom: 0px;
+	vertical-align: text-top;
+	margin: 0px;
+	width: 40%;
+	padding-left: 60px;
+}
+
+.btn {
+	margin-bottom: 20px;
+}
+
+/* copy*/
+#page-wrap div {
+	display:table-cell;
+	width:25%;
+	padding:2%;
+	font-size:1.0vw;
+	word-wrap:break-word;
+}
+
+#bg{
+	background-color:#f2f2f2;
+}
+/* copy*/
