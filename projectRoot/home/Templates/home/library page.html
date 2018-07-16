@@ -1,13 +1,14 @@
-﻿<!DOCTYPE HTML>
+﻿﻿<!DOCTYPE HTML>
+{%load static%}
 <html>
 <head>
-	<!--title and icon-->
-	<title> Beer Buddy - Library </title>
-	<link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
-	
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styling/library page.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <!--title and icon-->
+  <title> Beer Buddy - Library </title>
+  <link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/styling/library page.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 
 <body>
@@ -15,132 +16,132 @@
 <!--navbar-->
 
 {% include "home/navbar.html"%}
-   
+
 <div class="container" id="con">
-		
 
-<div class="row" id="filter">
-	<div class="dropdown mr-1" id="">
-    <button type="button" class="btn btn-outline-primary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      Category
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-      <a class="dropdown-item" href="#">LAGER</a>
-      <a class="dropdown-item" href="#">ALE</a>
-      <a class="dropdown-item" href="#">MALTE</a>
-	  <a class="dropdown-item" href="#">STOUT</a>
-	  <a class="dropdown-item" href="#">ALL</a>
+
+  <div class="row" id="filter">
+    <div class="dropdown mr-1" id="">
+      <button type="button" class="btn btn-outline-primary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="#">LAGER</a>
+        <a class="dropdown-item" href="#">ALE</a>
+        <a class="dropdown-item" href="#">MALTE</a>
+        <a class="dropdown-item" href="#">STOUT</a>
+        <a class="dropdown-item" href="#">ALL</a>
+      </div>
+    </div>
+
+    <div class="dropdown mr-1">
+      <button type="button" class="btn btn-outline-danger dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        OPTION1
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+
+    <div class="dropdown mr-1">
+      <button type="button" class="btn btn-outline-info dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        OPTION2
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+
+    <div class="dropdown mr-1">
+      <button type="button" class="btn btn-outline-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        OPTION3
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+
+    <div class="dropdown mr-1">
+      <button type="button" class="btn btn-outline-warning dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        OPTION4
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+
+    <div class="dropdown mr-1" id="">
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+        OPTION5
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
     </div>
   </div>
-  
-  <div class="dropdown mr-1">
-    <button type="button" class="btn btn-outline-danger dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      OPTION1
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
+  <hr>
+
+
+
+  <div class ="row" id="list">
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.1</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.2</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.3</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.4</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.5</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.6</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.7</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
+    </div>
+
+    <div class= "col-lg-3">
+      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+        <p>Corona Extra NO.8</p></a>
+      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
     </div>
   </div>
-  
-  <div class="dropdown mr-1">
-    <button type="button" class="btn btn-outline-info dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      OPTION2
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div>
-  
-  <div class="dropdown mr-1">
-    <button type="button" class="btn btn-outline-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      OPTION3
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div>
-  
-  <div class="dropdown mr-1">
-    <button type="button" class="btn btn-outline-warning dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      OPTION4
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div>
-  
-  <div class="dropdown mr-1" id="">
-    <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-      OPTION5
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
-  </div>
-</div>
-<hr>
-
-
-
-<div class ="row" id="list">
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.1</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.2</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.3</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.4</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.5</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.6</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.7</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-
-<div class= "col-lg-3">
-<a href="product page.html"><img src ="pic/corona.jpg" width="200" height="200" class="img-thumbnail">
-<p>Corona Extra NO.8</p></a>
-<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>	
-</div>
-</div>
 
 
 </div>
@@ -148,7 +149,7 @@
 
 
 
-</div>		
+</div>
 <!-- footer -->
 {% include "home/footer.html"%}
 

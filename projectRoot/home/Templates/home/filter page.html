@@ -1,49 +1,94 @@
-﻿<!DOCTYPE HTML>
+﻿﻿<!DOCTYPE HTML>
 <html>
-	<head>
+<head>
 	<!--title and icon-->
-	<title> Beer Buddy - Filter page</title>
+	<title> Beer Buddy - Add Beer Page </title>
 	<link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
-	
+
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="styling/filter page.css">
-	
+
 </head>
 
-	<body>
-		
+<body>
+
 <!--navbar-->
 
 {% include "home/navbar.html"%}
-  <script src="js/scripts.js"></script>
-  <div class="row">
-  <form action="/results.html" method="get" id="form1" >
-	  <div class="column">
-		<h2>TYPE</h2>
 
-		<input type="radio" name="type" value="Lager">Lager<br>
-		<input type="radio" name="type" value="Ale">Ale<br>
-		<input type="radio" name="type" value="Malte">Malte<br>
-		<input type="radio" name="type" value="Stout">Stout
-	  </div>
-	  <div class="column">
-		<h2>COLOR</h2>
 
-		<input type="radio" name="color" value="Black">Black<br>
-		<input type="radio" name="color" value="Yellow">Yellow<br>
-		<input type="radio" name="color" value="Amber">Amber<br>
-		<input type="radio" name="color" value="Brown">Brown
-	  </div>
-	   <div class="column">
-		<h2>COUNTRY</h2>
-		<input type="radio" name="country" value="Germany">Germany<br>
-		<input type="radio" name="country" value="Canada">Canada<br>
-		<input type="radio" name="country" value="USA">USA<br>
-		<input type="radio" name="country" value="Mexico">Mexico
-	  </div>
-	  <Button class="search" form="form1" >Search</Button>
-  </form>
+<!-- Carousel Filters -->
+<div class="container" id="con">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+
+			<div class="carousel-item active">
+
+				<div class="jumbotron">
+					<h1 class="display-4" style="text-align:center;"><img src="pic/type.png" width="60" height="60" id="type">TYPE</h1>
+					<hr class="my-4" id="hr1">
+					<div class="butt">
+						<button type="button" class="btn btn-outline-warning btn-lg">Stout</button>
+						<button type="button" class="btn btn-outline-danger btn-lg">Lager</button>
+						<button type="button" class="btn btn-outline-info btn-lg">Ale</button>
+						<button type="button" class="btn btn-outline-success btn-lg">Malt</button>
+					</div>
+				</div>
+
+			</div>
+			<div class="carousel-item">
+
+
+				<div class="jumbotron">
+					<h1 class="display-4" style="text-align:center;"><img src="pic/color.png" width="55" height="55" id="color">COLOUR</h1>
+
+					<hr class="my-4">
+					<div class="butt">
+						<button type="button" class="btn btn-outline-dark btn-lg" >Black</button>
+						<button type="button" class="btn btn-outline-warning btn-lg">Yellow</button>
+						<button type="button" class="btn btn-outline-danger btn-lg">Amber</button>
+						<button type="button" class="btn btn-outline-secondary btn-lg">Brown</button>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+
+				<div class="jumbotron">
+					<h1 class="display-4"style="text-align:center;"><img src="pic/country.png" width="55" height="55" id="country">COUNTRY</h1>
+
+					<hr class="my-4">
+					<div class="butt">
+						<button type="button" class="btn btn-outline-dark btn-lg" role="button" aria-pressed="true">Germany</button>
+						<button type="button" class="btn btn-outline-info btn-lg">Canada</button>
+						<button type="button" class="btn btn-outline-danger btn-lg">USA</button>
+						<button type="button" class="btn btn-outline-success btn-lg">Mexico</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span style="color:black; font-size: 20px;">Previous </span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span style="color:black;"> Next</span>
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+			<span class="sr-only">Next</span>
+
+		</a>
+
+	</div>
+	<button type="button" class="btn btn-primary btn-lg btn-block">Search</button>
 </div>
+
+
 <!-- footer -->
 {% include "home/footer.html"%}
 

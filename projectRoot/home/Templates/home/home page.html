@@ -1,13 +1,14 @@
-﻿<!doctype html>
+﻿﻿<!doctype html>
+{% load static %}
 <html lang="en" >
 <head>
-	<!--title and icon-->
-	<title> Beer Buddy - Home Page</title>
-	<link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
-	
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styling/home page.css">
-	
+    <!--title and icon-->
+    <title> Beer Buddy - Home Page</title>
+    <link rel="icon" sizes="76x76" href="{% static 'home/images/logo.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/styling/home page.css' %}">
+
 </head>
 
 <body>
@@ -17,69 +18,69 @@
 {% include "home/navbar.html"%}
 
 <div class="container">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <a href="article page.html"><img class="d-block w-100" width="800" height="500" src="pic/sample1.jpg" alt="First slide"></a>
-	  <div class="carousel-caption">
-        <h3>This is the first slide</h3>
-        <p>evbfinjvoweo</p>
-      </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="{% url 'article_page' %}"><img class="d-block w-100" width="800" height="500" src="{% static 'home/images/sample1.jpg' %}" alt="First slide"></a>
+                <div class="carousel-caption">
+                    <h3>This is the first slide</h3>
+                    <p>evbfinjvoweo</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="{% url 'article_page' %}"><img class="d-block w-100" width="800" height="500" src="{% static 'home/images/sample2.jpg' %}" alt="Second slide"></a>
+                <div class="carousel-caption">
+                    <h3>This is the second slide</h3>
+                    <p>evbfinjvoweo</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="{% url 'article_page' %}"><img class="d-block w-100" width="800" height="500" src="{% static 'home/images/sample3.jpg' %}" alt="Third slide"></a>
+                <div class="carousel-caption">
+                    <h3>This is the third slide</h3>
+                    <p>evbfinjvoweo</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <div class="carousel-item">
-      <a href="article page.html"><img class="d-block w-100" width="800" height="500" src="pic/sample2.jpg" alt="Second slide"></a>
-	  <div class="carousel-caption">
-        <h3>This is the second slide</h3>
-        <p>evbfinjvoweo</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <a href="article page.html"><img class="d-block w-100" width="800" height="500" src="pic/sample2.jpg" alt="Third slide"></a>
-	  <div class="carousel-caption">
-        <h3>This is the third slide</h3>
-        <p>evbfinjvoweo</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 
-<div class="container" id="cards">
-<div class="row">
-  <div class="col-sm-6" id="novice">
-    <div class="card">
-      <div class="card-body">
-       <a href="top picks.html"><button type="button" class="btn btn-danger btn-lg " id="nbt">   NOVICE   </button></a>
-	   <hr>
-		<h5 class="card-title">New to drinking beer? </h5>
-		<p class="card-text">Look at some of our top picks! We have a selection of beers that are popular amongst our users that you may like too.</p>
-      </div>
+    <div class="container" id="cards">
+        <div class="row">
+            <div class="col-sm-6" id="novice">
+                <div class="card">
+                    <div class="card-body">
+                        <a href="{% url 'top_picks' %}"><button type="button" class="btn btn-danger btn-lg " id="nbt">   NOVICE   </button></a>
+                        <hr>
+                        <h5 class="card-title">New to drinking beer? </h5>
+                        <p class="card-text">Look at some of our top picks! We have a selection of beers that are popular amongst our users that you may like too.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body" id= "exper">
+                        <a href="filter page.html"><button type="button" class="btn btn-info btn-lg " id="ebt" >EXPERIENCED</button></a>
+                        <hr>
+                        <h5 class="card-title">A beer expert?</h5>
+                        <p class="card-text">Choose your own filters! We have a variety of filters to help you find the beer your looking for.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body" id= "exper">
-        <a href="filter page.html"><button type="button" class="btn btn-info btn-lg " id="ebt" >EXPERIENCED</button></a>
-		<hr>
-		<h5 class="card-title">A beer expert?</h5>
-		<p class="card-text">Choose your own filters! We have a variety of filters to help you find the beer your looking for.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 </div>
 
 <!-- footer -->
