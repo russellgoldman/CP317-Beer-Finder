@@ -28,3 +28,8 @@
 	background-color:#f2f2f2;
 }
 /* copy*/
+
+.back {
+    margin: auto;
+    background-color: red;
+}

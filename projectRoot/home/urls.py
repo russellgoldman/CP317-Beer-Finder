@@ -25,4 +25,5 @@ urlpatterns = [
     path('product_page/', views.product_page, name="product_page"),
     path('filter_page/', views.filter_page, name="filter_page"),
     path('library_page/', views.library_page, name="library_page"),
+    path('add_beer/', views.form_view, name="add_beer"),
 ]
