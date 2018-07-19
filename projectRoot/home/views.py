@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from . import forms
-from .models import Beer, ContainerType, Taste
+from .models import Beer, ContainerType, Taste, Brand
 import django
 from . import models
 #from django.core.context_processors import csrf
@@ -23,7 +23,9 @@ def filter_page(request):
     return render(request, "home/filter page.html")
 
 def library_page(request):
-    return render(request, "home/library page.html")
+    beer_list = Beer.objects.order_by('beerName')
+    beer_dict = {'library_page':beer_list}
+    return render(request, "home/library page.html", context=beer_dict)
 def add_beer(request):
     return render(request, "home/add beer.html")
 def form_view(request):

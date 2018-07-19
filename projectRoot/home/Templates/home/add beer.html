@@ -26,14 +26,11 @@
 {% include "home/navbar.html"%}
 <hr>
 <div class="container back" id="con">
-	<form method="POST">
-		{{ form.as_p }}
+	<form class="form-group" method="POST">
 		{% csrf_token %}
-		<input type="submit" class="btn btn-outline-primary" value="Submit">
+		{{ form.as_p }}
+		<input type="submit" class="btn btn-primary" value="Submit">
 	</form>
-
-
-
 </div>
 
 <hr>
