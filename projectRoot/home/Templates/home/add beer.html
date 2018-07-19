@@ -11,11 +11,60 @@
 <style>
 	.back {
 		padding-top: 15px;
-		border: 1px solid black;
-		margin-left: 10%;
-		margin-right: 10%;
-
+		<!--border: 1px solid black;-->
+		margin: auto;
+		<!--background: blue;-->
 	}
+	<!--form {-->
+		<!--margin: auto;-->
+	<!--}-->
+	form-group {
+        margin-bottom: 25px;
+        margin-left: 30%;
+        margin-right: 20%;
+        padding-top: 10px;
+    }
+	.field{
+		display:inline-block;
+		padding-bottom: 15px;
+	}
+	select {
+	    <!--border-radius: 5px;-->
+	    padding-bottom: 15px;
+	    height: 35px;
+        width: 140px;
+        padding: 5px;
+        margin: 10px;
+        margin-top: 15px;
+        border: 1px solid #c0c0c0;
+        border-radius: 2px;
+        position: relative;
+	}
+	input {
+	    border-radius: 5px;
+        width: 250px;
+        margin-left: 10px;
+        padding-bottom: 15px;
+    }
+    label {
+        display: inline-block;
+        text-align: right;
+        width: 40%;
+        padding: 5px;
+        vertical-align: top;
+        margin-top: 10px;
+    }
+    #submit {
+        background-color: #59ace0;
+        border-radius: 4px;
+        color: white;
+        font-size: 1em;
+        height: 40px;
+        width: 96px;
+        margin: 10px;
+        border: 0px solid;
+        text-align: center;
+}
 </style>
 </head>
 
@@ -28,8 +77,18 @@
 <div class="container back" id="con">
 	<form class="form-group" method="POST">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" class="btn btn-primary" value="Submit">
+		<!--{{ form.as_p }}-->
+
+
+        {% for field in form %}
+            <fieldset class="control-group">
+                <label class="control-label" form="{{ field.name }}">{{ field.label }}:</label>
+                <div class="field control-group">
+                    {{ field }}
+                </div>
+            </fieldset>
+        {% endfor %}
+		<input type="submit" id="submit" class="btn btn-primary" value="Submit">
 	</form>
 </div>
 
