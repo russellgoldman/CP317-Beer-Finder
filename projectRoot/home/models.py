@@ -10,26 +10,11 @@ class Brand(models.Model):
         return self.brandName
 
 
-class Colour(models.Model):
-    colourNum = models.IntegerField(default=0)
-    colourHex = models.CharField(max_length=10)
-
-    def __str__(self):
-        return str(self.colourNum)
-
-
 class BodyType(models.Model):
     bodyTypeName = models.CharField(max_length=20)
 
     def __str__(self):
         return self.bodyTypeName
-
-
-class ContainerType(models.Model):
-    containerTypeName = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.containerTypeName
 
 
 class Taste(models.Model):
@@ -39,9 +24,16 @@ class Taste(models.Model):
         return self.tasteName
 
 
+class ContainerType(models.Model):
+    containerTypeName = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.containerTypeName
+
+
 class Beer(models.Model):
     beerName = models.CharField(max_length=50)
-    beerPhoto = models.ImageField(upload_to='beers', blank=True)
+    colourHex = models.CharField(max_length=10)
     alcoholVolume = models.FloatField(default=0.0)
     canPrice = models.FloatField(default=0.0, blank=True, null=True)
     bottlePrice = models.FloatField(default=0.0, blank=True, null=True)
@@ -51,8 +43,6 @@ class Beer(models.Model):
     # reference to the BodyType model (many-to-one)
     # null=True to allow for Beer that has no BodyType matched to it yet
     bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
-    # reference to the Colour model (many-to-one)
-    colour = models.ForeignKey(Colour, on_delete=models.CASCADE, null=True)
     # reference to the ContainerType model (many-to-many)
     # blank=True to allow for Beer that has no ContainerType matched to it yet
     containerType = models.ManyToManyField(ContainerType, blank=True)
