@@ -1,0 +1,30 @@
+/* copy*/
+.navbar {
+    background-color: #cccccc;
+}
+#bn{
+	font-size: 3em;
+	color:white;
+	font-family: 'Raleway', sans-serif;
+}
+/* copy*/
+
+#con{
+	padding-top: 50px;
+	padding-bottom:100px;
+	width:60%
+}
+
+/* copy*/
+#page-wrap div {
+	display:table-cell;
+	width:25%;
+	padding:2%;
+	font-size:1.0vw;
+	word-wrap:break-word;
+}
+
+#bg{
+	background-color:#f2f2f2;	
+}
+/* copy*/
