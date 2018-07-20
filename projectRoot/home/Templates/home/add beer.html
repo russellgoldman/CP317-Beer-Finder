@@ -1,22 +1,73 @@
 ﻿﻿<!DOCTYPE HTML>
+{% load static %}
 <html>
-<head>
-	<!--title and icon-->
-	<title> Beer Buddy - Add Beer Page </title>
-	<link rel="icon" sizes="76x76" href="home/images/logo.png" type="image/x-icon">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <head>
+        <!--title and icon-->
+        <title> Beer Buddy - Add Beer Page </title>
+        <link rel="icon" sizes="76x76" href="home/images/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-	<!--<link rel="stylesheet" type="text/css" href="styling/add beer page.css">-->
-<style>
-	.back {
-		padding-top: 15px;
-		border: 1px solid black;
-		margin-left: 10%;
-		margin-right: 10%;
-
-	}
-</style>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" type="text/css" href="styling/add beer page.css">-->
+        <link rel="stylesheet" type="text/css" href="{% static 'home/styling/add beer page.css' %}">
+    <!--<style>-->
+	<!--.back {-->
+		<!--padding-top: 15px;-->
+		<!--&lt;!&ndash;border: 1px solid black;&ndash;&gt;-->
+		<!--margin: auto;-->
+		<!--&lt;!&ndash;background: blue;&ndash;&gt;-->
+	<!--}-->
+	<!--&lt;!&ndash;form {&ndash;&gt;-->
+		<!--&lt;!&ndash;margin: auto;&ndash;&gt;-->
+	<!--&lt;!&ndash;}&ndash;&gt;-->
+	<!--form-group {-->
+        <!--margin-bottom: 25px;-->
+        <!--margin-left: 30%;-->
+        <!--margin-right: 20%;-->
+        <!--padding-top: 10px;-->
+    <!--}-->
+	<!--.field{-->
+		<!--display:inline-block;-->
+		<!--padding-bottom: 15px;-->
+	<!--}-->
+	<!--select {-->
+	    <!--&lt;!&ndash;border-radius: 5px;&ndash;&gt;-->
+	    <!--padding-bottom: 15px;-->
+	    <!--height: 35px;-->
+        <!--width: 140px;-->
+        <!--padding: 5px;-->
+        <!--margin: 10px;-->
+        <!--margin-top: 15px;-->
+        <!--border: 1px solid #c0c0c0;-->
+        <!--border-radius: 2px;-->
+        <!--position: relative;-->
+	<!--}-->
+	<!--input {-->
+	    <!--border-radius: 5px;-->
+        <!--width: 250px;-->
+        <!--margin-left: 10px;-->
+        <!--padding-bottom: 15px;-->
+    <!--}-->
+    <!--label {-->
+        <!--display: inline-block;-->
+        <!--text-align: right;-->
+        <!--width: 40%;-->
+        <!--padding: 5px;-->
+        <!--vertical-align: top;-->
+        <!--margin-top: 10px;-->
+    <!--}-->
+    <!--#submit {-->
+        <!--background-color: #59ace0;-->
+        <!--border-radius: 4px;-->
+        <!--color: white;-->
+        <!--font-size: 1em;-->
+        <!--height: 40px;-->
+        <!--width: 96px;-->
+        <!--margin: 10px;-->
+        <!--border: 0px solid;-->
+        <!--text-align: center;-->
+<!--}-->
+<!--</style>-->
 </head>
 
 <body>
@@ -28,13 +79,18 @@
 <div class="container back" id="con">
 	<form class="form-group" method="POST">
 		{% csrf_token %}
-		<!--{% for field in form %}-->
-            <!--<div class="form-group">-->
-                <!--{{field}}-->
-            <!--</div>-->
-        <!--{% endfor %}-->
-		{{ form.as_p }}
-		<input type="submit" class="btn btn-primary" value="Submit">
+		<!--{{ form.as_p }}-->
+
+
+        {% for field in form %}
+            <fieldset class="control-group">
+                <label class="control-label" form="{{ field.name }}">{{ field.label }}:</label>
+                <div class="field control-group">
+                    {{ field }}
+                </div>
+            </fieldset>
+        {% endfor %}
+		<input type="submit" id="submit" class="btn btn-primary" value="Submit">
 	</form>
 </div>
 
