@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE HTML>
+﻿
+<!DOCTYPE HTML>
 {%load static%}
 <html>
 <head>
@@ -7,8 +8,20 @@
   <link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
 
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'home/styling/library page.css' %}">
+  <!--<link rel="stylesheet" type="text/css" href="{% static 'home/styling/library page.css' %}">-->
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <style>
+    #list {
+      <!--background: blue;-->
+
+    }
+    .card-custom{
+        max-width: 300px;
+    }
+    .row{
+    margin-left: 30px;
+    }
+  </style>
 </head>
 
 <body>
@@ -89,67 +102,78 @@
       </div>
     </div>
   </div>
+</div>
   <hr>
 
+  {% if library_page %}
 
+        <div class ="row mt-5 justify-content-left" id="list">
+          {% for item in library_page %}
+            <div class="card card-custom mx-2 mb-3">
+            <a href="product page.html"><img class="card-img-top" src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+                <p class="card-title">{{ item.beerName }}</p></a>
+                <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
+             </div>
+          {% endfor %}
 
-  <div class ="row" id="list">
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.1</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.2</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.3</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.4</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.5</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.6</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.7</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-
-    <div class= "col-lg-3">
-      <a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
-        <p>Corona Extra NO.8</p></a>
-      <p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>
-    </div>
-  </div>
-
-
-</div>
+        </div>
+    {% endif %}
 
 
 
+  <!--<div class ="row" id="list">-->
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.1</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
 
-</div>
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.2</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.3</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.4</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.5</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.6</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.7</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+
+    <!--<div class= "col-lg-3">-->
+      <!--<a href="product page.html"><img src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">-->
+        <!--<p>Corona Extra NO.8</p></a>-->
+      <!--<p><img src="pic/money.png" width="30" height="30" alt="">14.50</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+<!--</div>-->
+
 <!-- footer -->
 {% include "home/footer.html"%}
 

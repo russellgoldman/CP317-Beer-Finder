@@ -1,22 +1,73 @@
 ﻿﻿<!DOCTYPE HTML>
+{% load static %}
 <html>
-<head>
-	<!--title and icon-->
-	<title> Beer Buddy - Add Beer Page </title>
-	<link rel="icon" sizes="76x76" href="home/images/logo.png" type="image/x-icon">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <head>
+        <!--title and icon-->
+        <title> Beer Buddy - Add Beer Page </title>
+        <link rel="icon" sizes="76x76" href="home/images/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-	<!--<link rel="stylesheet" type="text/css" href="styling/add beer page.css">-->
-<style>
-	.back {
-		padding-top: 15px;
-		border: 1px solid black;
-		margin-left: 10%;
-		margin-right: 10%;
-
-	}
-</style>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" type="text/css" href="styling/add beer page.css">-->
+        <link rel="stylesheet" type="text/css" href="{% static 'home/styling/add beer page.css' %}">
+    <!--<style>-->
+	<!--.back {-->
+		<!--padding-top: 15px;-->
+		<!--&lt;!&ndash;border: 1px solid black;&ndash;&gt;-->
+		<!--margin: auto;-->
+		<!--&lt;!&ndash;background: blue;&ndash;&gt;-->
+	<!--}-->
+	<!--&lt;!&ndash;form {&ndash;&gt;-->
+		<!--&lt;!&ndash;margin: auto;&ndash;&gt;-->
+	<!--&lt;!&ndash;}&ndash;&gt;-->
+	<!--form-group {-->
+        <!--margin-bottom: 25px;-->
+        <!--margin-left: 30%;-->
+        <!--margin-right: 20%;-->
+        <!--padding-top: 10px;-->
+    <!--}-->
+	<!--.field{-->
+		<!--display:inline-block;-->
+		<!--padding-bottom: 15px;-->
+	<!--}-->
+	<!--select {-->
+	    <!--&lt;!&ndash;border-radius: 5px;&ndash;&gt;-->
+	    <!--padding-bottom: 15px;-->
+	    <!--height: 35px;-->
+        <!--width: 140px;-->
+        <!--padding: 5px;-->
+        <!--margin: 10px;-->
+        <!--margin-top: 15px;-->
+        <!--border: 1px solid #c0c0c0;-->
+        <!--border-radius: 2px;-->
+        <!--position: relative;-->
+	<!--}-->
+	<!--input {-->
+	    <!--border-radius: 5px;-->
+        <!--width: 250px;-->
+        <!--margin-left: 10px;-->
+        <!--padding-bottom: 15px;-->
+    <!--}-->
+    <!--label {-->
+        <!--display: inline-block;-->
+        <!--text-align: right;-->
+        <!--width: 40%;-->
+        <!--padding: 5px;-->
+        <!--vertical-align: top;-->
+        <!--margin-top: 10px;-->
+    <!--}-->
+    <!--#submit {-->
+        <!--background-color: #59ace0;-->
+        <!--border-radius: 4px;-->
+        <!--color: white;-->
+        <!--font-size: 1em;-->
+        <!--height: 40px;-->
+        <!--width: 96px;-->
+        <!--margin: 10px;-->
+        <!--border: 0px solid;-->
+        <!--text-align: center;-->
+<!--}-->
+<!--</style>-->
 </head>
 
 <body>
@@ -26,98 +77,21 @@
 {% include "home/navbar.html"%}
 <hr>
 <div class="container back" id="con">
-	<form method="POST">
-		{{ form.as_p }}
+	<form class="form-group" method="POST">
 		{% csrf_token %}
-		<input type="submit" class="btn btn-outline-primary" value="Submit">
+		<!--{{ form.as_p }}-->
+
+
+        {% for field in form %}
+            <fieldset class="control-group">
+                <label class="control-label" form="{{ field.name }}">{{ field.label }}:</label>
+                <div class="field control-group">
+                    {{ field }}
+                </div>
+            </fieldset>
+        {% endfor %}
+		<input type="submit" id="submit" class="btn btn-primary" value="Submit">
 	</form>
-	</form>
-	<!--<div class="input-group mb-3" id="Origin">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<span class="input-group-text" id="basic-addon1">Origin:</span>-->
-		<!--</div>-->
-		<!--<input type="text" class="form-control" placeholder="Country of the Beer" aria-label="Username" aria-describedby="basic-addon1">-->
-	<!--</div>-->
-
-		<!--<div class="input-group mb-3" id="name">-->
-			<!--<div class="input-group-prepend">-->
-				<!--<span class="input-group-text" id="basic-addon1">Name:</span>-->
-			<!--</div>-->
-			<!--<input type="text" class="form-control" placeholder="Name of the Beer" aria-label="Username" aria-describedby="basic-addon1">-->
-		<!--</div>-->
-
-	<!--<div class="input-group mb-3" id="ACL">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<span class="input-group-text">ACL</span>-->
-		<!--</div>-->
-		<!--<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">-->
-		<!--<div class="input-group-append">-->
-			<!--<span class="input-group-text">%</span>-->
-		<!--</div>-->
-	<!--</div>-->
-
-
-
-	<!--<div class="input-group mb-3" id="color">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<button type="button" class="btn btn-outline-secondary">Action</button>-->
-			<!--<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-				<!--<span class="sr-only">Toggle Dropdown</span>-->
-			<!--</button>-->
-			<!--<div class="dropdown-menu">-->
-				<!--<a class="dropdown-item" href="#">Amber</a>-->
-				<!--<a class="dropdown-item" href="#">Blonde</a>-->
-				<!--<a class="dropdown-item" href="#">Brown</a>-->
-				<!--<a class="dropdown-item" href="#">Cream</a>-->
-				<!--<a class="dropdown-item" href="#">Dark</a>-->
-				<!--<a class="dropdown-item" href="#">Fruit</a>-->
-				<!--<a class="dropdown-item" href="#">Golden</a>-->
-				<!--<a class="dropdown-item" href="#">Honey</a>-->
-				<!--<a class="dropdown-item" href="#">India Pale Ale</a>-->
-				<!--<a class="dropdown-item" href="#">Light</a>-->
-				<!--<a class="dropdown-item" href="#">Pale</a>-->
-				<!--<a class="dropdown-item" href="#">Pilsner</a>-->
-				<!--<a class="dropdown-item" href="#">Red</a>-->
-				<!--<a class="dropdown-item" href="#">Strong</a>-->
-				<!--<a class="dropdown-item" href="#">Wheat</a>-->
-				<!--<div role="separator" class="dropdown-divider"></div>-->
-				<!--<a class="dropdown-item" href="#">Unkown</a>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<input type="text" class="form-control" aria-label="Text input with segmented dropdown button">-->
-	<!--</div>-->
-
-	<!--<div class="input-group mb-3" id="Type">-->
-		<!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
-		<!--<div class="input-group-append">-->
-			<!--<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>-->
-			<!--<div class="dropdown-menu">-->
-				<!--<a class="dropdown-item" href="#">Ales</a>-->
-				<!--<a class="dropdown-item" href="#">Lagers</a>-->
-				<!--<a class="dropdown-item" href="#">Stouts & Porters</a>-->
-				<!--<a class="dropdown-item" href="#">Malts</a>-->
-				<!--<div role="separator" class="dropdown-divider"></div>-->
-				<!--<a class="dropdown-item" href="#">Unkown</a>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</div>-->
-
-	<!--<img src="pic/add_photo_icon.svg" weight=45px; height=45px;></img>-->
-	<!--<div class="input-group mb-3">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<span class="input-group-text">Add a photo </span>-->
-		<!--</div>-->
-		<!--<div class="custom-file">-->
-			<!--<input type="file" class="custom-file-input" id="inputGroupFile01">-->
-			<!--<label class="custom-file-label" for="inputGroupFile01">Choose file</label>-->
-		<!--</div>-->
-	<!--</div>-->
-
-	<!--<div class="form-group">-->
-		<!--<label for="exampleFormControlTextarea1">Details:</label>-->
-		<!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
-	<!--</div>-->
-
 </div>
 
 <hr>
