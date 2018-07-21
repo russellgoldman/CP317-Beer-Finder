@@ -26,97 +26,174 @@
 {% include "home/navbar.html"%}
 <hr>
 <div class="container back" id="con">
-	<form method="POST">
-		{{ form.as_p }}
-		{% csrf_token %}
-		<input type="submit" class="btn btn-outline-primary" value="Submit">
-	</form>
-	</form>
-	<!--<div class="input-group mb-3" id="Origin">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<span class="input-group-text" id="basic-addon1">Origin:</span>-->
-		<!--</div>-->
-		<!--<input type="text" class="form-control" placeholder="Country of the Beer" aria-label="Username" aria-describedby="basic-addon1">-->
-	<!--</div>-->
+	<div class="input-group mb-3" id="name">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Name:</span>
+	</div>
+	<input type="text" class="form-control" placeholder="Name of the Beer" aria-label="Username" aria-describedby="basic-addon1">
+	</div>
 
-		<!--<div class="input-group mb-3" id="name">-->
-			<!--<div class="input-group-prepend">-->
-				<!--<span class="input-group-text" id="basic-addon1">Name:</span>-->
-			<!--</div>-->
-			<!--<input type="text" class="form-control" placeholder="Name of the Beer" aria-label="Username" aria-describedby="basic-addon1">-->
-		<!--</div>-->
+	<div class="input-group mb-3" id="Origin">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Origin:</span>
+	</div>
+	<input type="text" class="form-control" placeholder="Country of the Beer" aria-label="Username" aria-describedby="basic-addon1">
+	</div>
+	
+	<div class="input-group mb-3" id="ACL">
+	<div class="input-group-prepend">
+    <span class="input-group-text">ACL:</span>
+	</div>
+	<input class="form-control" type="number" value="5" min="0" max="99" id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">.</span>
+	</div>
+	<input class="form-control" type="number" value="55" min="0" max="99" id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">%</span>
+	</div>
+	</div>
+	
+	<div class="input-group mb-3" id="ACL">
+	<div class="input-group-prepend">
+    <span class="input-group-text">Can Price:</span>
+	</div>
+	<input class="form-control" type="number" value="00" min="0"  id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">.</span>
+	</div>
+	<input class="form-control" type="number" value="00" min="0" max="99" id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">CAD</span>
+	</div>
+	</div>
+	
+	<div class="input-group mb-3" id="ACL">
+	<div class="input-group-prepend">
+    <span class="input-group-text">Bottle Price:</span>
+	</div>
+	<input class="form-control" type="number" value="00" min="0"  id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">.</span>
+	</div>
+	<input class="form-control" type="number" value="00" min="0" max="99" id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">CAD</span>
+	</div>
+	</div>
+	
+	<div class="input-group mb-3" id="ACL">
+	<div class="input-group-prepend">
+    <span class="input-group-text">Keg Price:</span>
+	</div>
+	<input class="form-control" type="number" value="00" min="0"  id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">.</span>
+	</div>
+	<input class="form-control" type="number" value="00" min="0" max="99" id="example-number-input">
+	<div class="input-group-append">
+    <span class="input-group-text">CAD</span>
+	</div>
+	</div>
+	
+	
+	<div class="input-group mb-3" id="color">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Color:</span>
+	</div>
+	<select class="custom-select">
+	<option selected>Choose a color</option>
+	<option value="1">Amber</option>
+	<option value="2">Blonde</option>
+	<option value="3">Brown</option>
+	<option value="3">Cream</option>
+	<option value="3">Unknown</option>
+	</select>
+	</div>
+	
+	<div class="input-group mb-3" id="brand">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Brand:</span>
+	</div>
+	<select class="custom-select">
+	<option selected>Choose a Brand</option>
+	<option value="1">Amber</option>
+	<option value="2">Blonde</option>
+	<option value="3">Brown</option>
+	<option value="3">Cream</option>
+	<option value="3">Unknown</option>
+	</select>
+	</div>
+	
+	<div class="input-group mb-3" id="brand">
+	<div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Body Type:</span>
+	</div>
+	<select class="custom-select">
+	<option selected>Choose a Body Type</option>
+	<option value="1">Amber</option>
+	<option value="2">Blonde</option>
+	<option value="3">Brown</option>
+	<option value="3">Cream</option>
+	<option value="3">Unknown</option>
+	</select>
+	</div>
+	
+	<span class="input-group-text" id="basic-addon1">Container Type:</span>
+	<select class="custom-select mb-3" multiple>
+	<option selected>x</option>
+	<option value="1">One</option>
+	<option value="2">Two</option>
+	<option value="3">Three</option>
+	</select>
+	
+	<span class="input-group-text" id="basic-addon1">Taste:</span>
+	<select class="custom-select" multiple>
+	<option selected>x</option>
+	<option value="1">One</option>
+	<option value="2">Two</option>
+	<option value="3">Three</option>
+	</select>
 
-	<!--<div class="input-group mb-3" id="ACL">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<span class="input-group-text">ACL</span>-->
-		<!--</div>-->
-		<!--<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">-->
-		<!--<div class="input-group-append">-->
-			<!--<span class="input-group-text">%</span>-->
-		<!--</div>-->
-	<!--</div>-->
+	<img src="pic/add_photo_icon.svg" weight=45px; height=45px;></img>
+	<div class="input-group mb-3">
+	<div class="input-group-prepend">
+    <span class="input-group-text">Add a photo </span>
+	</div>
+	<div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+	</div>
+	</div>
+	
+	<div class="form-group">
+    <label for="exampleFormControlTextarea1">Details:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	</div>
 
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
 
-
-	<!--<div class="input-group mb-3" id="color">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<button type="button" class="btn btn-outline-secondary">Action</button>-->
-			<!--<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-				<!--<span class="sr-only">Toggle Dropdown</span>-->
-			<!--</button>-->
-			<!--<div class="dropdown-menu">-->
-				<!--<a class="dropdown-item" href="#">Amber</a>-->
-				<!--<a class="dropdown-item" href="#">Blonde</a>-->
-				<!--<a class="dropdown-item" href="#">Brown</a>-->
-				<!--<a class="dropdown-item" href="#">Cream</a>-->
-				<!--<a class="dropdown-item" href="#">Dark</a>-->
-				<!--<a class="dropdown-item" href="#">Fruit</a>-->
-				<!--<a class="dropdown-item" href="#">Golden</a>-->
-				<!--<a class="dropdown-item" href="#">Honey</a>-->
-				<!--<a class="dropdown-item" href="#">India Pale Ale</a>-->
-				<!--<a class="dropdown-item" href="#">Light</a>-->
-				<!--<a class="dropdown-item" href="#">Pale</a>-->
-				<!--<a class="dropdown-item" href="#">Pilsner</a>-->
-				<!--<a class="dropdown-item" href="#">Red</a>-->
-				<!--<a class="dropdown-item" href="#">Strong</a>-->
-				<!--<a class="dropdown-item" href="#">Wheat</a>-->
-				<!--<div role="separator" class="dropdown-divider"></div>-->
-				<!--<a class="dropdown-item" href="#">Unkown</a>-->
-			<!--</div>-->
-		<!--</div>-->
-		<!--<input type="text" class="form-control" aria-label="Text input with segmented dropdown button">-->
-	<!--</div>-->
-
-	<!--<div class="input-group mb-3" id="Type">-->
-		<!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
-		<!--<div class="input-group-append">-->
-			<!--<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type</button>-->
-			<!--<div class="dropdown-menu">-->
-				<!--<a class="dropdown-item" href="#">Ales</a>-->
-				<!--<a class="dropdown-item" href="#">Lagers</a>-->
-				<!--<a class="dropdown-item" href="#">Stouts & Porters</a>-->
-				<!--<a class="dropdown-item" href="#">Malts</a>-->
-				<!--<div role="separator" class="dropdown-divider"></div>-->
-				<!--<a class="dropdown-item" href="#">Unkown</a>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</div>-->
-
-	<!--<img src="pic/add_photo_icon.svg" weight=45px; height=45px;></img>-->
-	<!--<div class="input-group mb-3">-->
-		<!--<div class="input-group-prepend">-->
-			<!--<span class="input-group-text">Add a photo </span>-->
-		<!--</div>-->
-		<!--<div class="custom-file">-->
-			<!--<input type="file" class="custom-file-input" id="inputGroupFile01">-->
-			<!--<label class="custom-file-label" for="inputGroupFile01">Choose file</label>-->
-		<!--</div>-->
-	<!--</div>-->
-
-	<!--<div class="form-group">-->
-		<!--<label for="exampleFormControlTextarea1">Details:</label>-->
-		<!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
-	<!--</div>-->
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Submit a new beer</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			Are you sure u to submit a new beer data?
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-primary">Yes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 
 </div>
 
