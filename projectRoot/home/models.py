@@ -33,7 +33,7 @@ class ContainerType(models.Model):
 
 class Beer(models.Model):
     beerName = models.CharField(max_length=50)
-    colourHex = models.CharField(max_length=10)
+    beerPhoto = models.ImageField(upload_to='beers', blank=True)
     alcoholVolume = models.FloatField(default=0.0)
     canPrice = models.FloatField(default=0.0, blank=True, null=True)
     bottlePrice = models.FloatField(default=0.0, blank=True, null=True)
