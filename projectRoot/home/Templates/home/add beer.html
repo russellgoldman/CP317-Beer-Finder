@@ -77,7 +77,7 @@
 {% include "home/navbar.html"%}
 <hr>
 <div class="container back" id="con">
-	<form class="form-group" method="POST">
+	<form class="form-group" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<!--{{ form.as_p }}-->
 

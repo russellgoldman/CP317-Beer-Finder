@@ -110,7 +110,7 @@
         <div class ="row mt-5 justify-content-left" id="list">
           {% for item in library_page %}
             <div class="card card-custom mx-2 mb-3">
-            <a href="product page.html"><img class="card-img-top" src ="{% static 'home/images/corona.jpg' %}" width="200" height="200" class="img-thumbnail">
+            <a href="{% url 'product_page' %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
                 <p class="card-title">{{ item.beerName }}</p></a>
                 <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
              </div>

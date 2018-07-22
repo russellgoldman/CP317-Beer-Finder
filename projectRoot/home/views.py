@@ -17,7 +17,9 @@ def top_picks(request):
     return render(request, "home/top picks.html")
 
 def product_page(request):
-    return render(request, "home/product page.html")
+    beer = Beer.objects.order_by('beerName')
+    beer_dict = {'product_page': beer}
+    return render(request, "home/product page.html",context=beer_dict)
 
 def filter_page(request):
     return render(request, "home/filter page.html")
@@ -29,19 +31,19 @@ def library_page(request):
 def add_beer(request):
     return render(request, "home/add beer.html")
 def form_view(request):
-    form =forms.NewBeer()
-
+    # form =forms.NewBeer()
+    form = forms.NewBeer(request.POST, request.FILES)
     # form = forms.FormName()
 
     if request.method == 'POST':
-        form = forms.NewBeer(request.POST)
+        form = forms.NewBeer(request.POST, request.FILES)
 
         if form.is_valid():
 
             #add form to data base, do something
 
             beer_name = form.cleaned_data['beerName']
-            colour_Hex = form.cleaned_data['colourHex']
+            photo = form.cleaned_data['beerPhoto']
             acl = form.cleaned_data['alcoholVolume']
             can_Price = form.cleaned_data['canPrice']
             bottle_Price = form.cleaned_data['bottlePrice']
@@ -51,7 +53,7 @@ def form_view(request):
             container_Type = form.cleaned_data['containerType']
             taste_a = form.cleaned_data['taste']
 
-            new_beer = Beer(beerName=beer_name,colourHex=colour_Hex, alcoholVolume=acl, canPrice=can_Price,bottlePrice=bottle_Price,kegPrice=keg_Price,brand=brand_a, bodyType = body_Type)
+            new_beer = Beer(beerName=beer_name,beerPhoto=photo, alcoholVolume=acl, canPrice=can_Price,bottlePrice=bottle_Price,kegPrice=keg_Price,brand=brand_a, bodyType = body_Type)
             new_beer.save()
             for container in container_Type:
                 new_beer.containerType.add(container)
