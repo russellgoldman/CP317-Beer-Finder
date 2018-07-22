@@ -29,12 +29,12 @@ def library_page(request):
 def add_beer(request):
     return render(request, "home/add beer.html")
 def form_view(request):
-    form =forms.NewBeer()
+    form = forms.NewBeer(request.POST, request.FILES)
 
     # form = forms.FormName()
 
     if request.method == 'POST':
-        form = forms.NewBeer(request.POST)
+        form = forms.NewBeer(request.POST, request.FILES)
 
         if form.is_valid():
 
