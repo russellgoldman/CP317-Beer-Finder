@@ -1,6 +1,6 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light highlight" >
-	<a class="navbar-brand list" id="bn"><img src="{% static 'home/images/logo.png' %}" width="60" height="40" alt="">Beer Buddy</a>
+	<a class="navbar-brand list" id="bn" href="{% url 'home' %}"><img src="{% static 'home/images/logo.png' %}" width="60" height="40" alt="">Beer Buddy</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -27,6 +27,9 @@
 				</div>
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'library_page' %}">All Products<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'add_beer' %}">Add Beer<span class="sr-only">(current)</span></a>
 			</li>
 			</li>
 		</ul>
