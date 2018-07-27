@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title> Beer Buddy - About Page </title>
+        <link rel="icon" sizes="76x76" href="home/images/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'home/styling/about.css' %}">
+
+</head>
+<body>
+<!--navbar-->
+
+{% include "home/navbar.html"%}
+<hr>
+<h1>
+CP317 Beer Finder Web App</h1>
+<p>
+    Inspiration:</p>
+<p>Inspiration: Have you ever had an idea of what kind of beer you wanted, maybe a dark yellow beer with a medium body and an approximately 5% alcohol content, but you didn’t know what brand would be best linked to your criteria?
+</p>
+<p>Our web application hopes to solve this by asking for user search criteria and returning a list of beers that match their specifications in order from most alike to least alike.
+</p>
+<p>Tools:</p>
+<p>Front-end:
+Scripting: Django templating language (DTL) / JavaScript
+Structure: HTML
+Styling: CSS / Bootstrap
+Back-end:
+Server: Django
+Database: PostgreSQL (built-in with Django)
+API: Django GET and POST definitions for accessing/modifying database content
+Data Structures: List, Queue, Stack
+Testing: PyTest
+    Connection between Front and Back-ends:</p>
+<p>Django has a templating system called Jinga which allows for the dynamic conditional rendering of HTML files
+All CSS and JS files are contained in a special folder named static where they can be referenced within the HTML file
+Django is responsible for hosting the web application, accessing and modifying our PostgreSQL database, and with the Django REST Framework extension, it can handle API requests so the front-end client can access/modify data from our back-end
+JS is responsible for further manipulation of the HTML Document Object Model (DOM) that cannot be handed by DTL
+    CSS and Bootstrap are used for styling</p>
+<p>Team Members</p>
+<p>Lead Developers
+Russell Goldman
+Tauqeer Choudhry
+Don Vo
+Django Templates
+Abdullahi Abdullahi
+Ziheng Wang (Isaac)
+Zhixian Li (Catherine)
+Abdisalan Mohamed Abdi
+Bootstrap / CSS Styling
+Ni Yang (Nina)
+Yuting He
+Franchesco Livado
+Modellers and Database
+Yanda Tao
+David Moreno
+Sirong Liu
+Yu He
+Peiyu Lu (Lucy)
+Views and Routing
+Abraham Banka
+Zizheng Huang
+Mengdan Wan
+Jerry Haq
+API Developers
+Jeremy Lickers
+Matthew Wong
+Huai Yao Hu (Walter)
+Wen Han Tang
+</p>
+
+
+<hr>
+<!-- footer -->
+{% include "home/footer.html"%}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</body>
+</html>
