@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 {%load static%}
 <html>
 <head>
@@ -8,10 +7,77 @@
   <link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
 
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-  link rel="stylesheet" type="text/css" href="{% static 'home/styling/library page.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/styling/library page.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 </head>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+        input[type="radio"]{
+            vertical-align: baseline;
+        }
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 33%;
+      padding: 10px 0px 10px 10%;
+      height: 300px; /* Should be removed. Only for demonstration */
+      background-color:#bbb;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    #filter_button {
+      display: none;
+    }
+    .search{
+      padding:16px 32px;
+      font-family:helvetica;
+      font-size:16px;
+      font-weight:100;
+      color:#fff;
+      background: #587286;
+      border:0;
+      font-weight:100;
+      margin:auto;
+      display:block;
+    }
+    .search:hover{
+      padding:16px 32px;
+      font-family:helvetica;
+      font-size:16px;
+      font-weight:100;
+      color:#fff;
+      background: #000000;
+      border:0;
+      font-weight:100;
+      margin:auto;
+      display:block;
+    }
+    #form1 {
+       width: 100%;
+    }
+    </style>
+
+<script type="text/javascript">
+	function changeClass(){
+    var x = document.getElementById("filter_button");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+
+	}
+
+	</script>
 
 <body>
 
@@ -20,78 +86,37 @@
 {% include "home/navbar.html"%}
 
 <div class="container" id="con">
+  <Button class="search"  onclick="changeClass()">Filter</Button>
+  <!--<input type="button" onclick="location.href={% url 'add_beer' %}" value="Add Beer" />-->
+  <div class="hide_div" id="filter_button">
+    <div class="row">
+      <form action="/library_page" method="get" id="form1" >
+        <div class="column">
+        <h2>TYPE</h2>
 
+        <input type="radio" name="type"  id="Bottle" value="Bottle">Bottle<br>
+        <input type="radio" name="type"  id="Can" value="Can">Can<br>
+        <input type="radio" name="type"  id="Keg" value="Keg">Keg<br>
+        </div>
+        <div class="column">
+        <h2>COLOR</h2>
 
-  <div class="row" id="filter">
-    <div class="dropdown mr-1" id="">
-      <button type="button" class="btn btn-outline-primary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        Category
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">LAGER</a>
-        <a class="dropdown-item" href="#">ALE</a>
-        <a class="dropdown-item" href="#">MALTE</a>
-        <a class="dropdown-item" href="#">STOUT</a>
-        <a class="dropdown-item" href="#">ALL</a>
-      </div>
-    </div>
-
-    <div class="dropdown mr-1">
-      <button type="button" class="btn btn-outline-danger dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        OPTION1
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div>
-
-    <div class="dropdown mr-1">
-      <button type="button" class="btn btn-outline-info dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        OPTION2
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div>
-
-    <div class="dropdown mr-1">
-      <button type="button" class="btn btn-outline-success dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        OPTION3
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div>
-
-    <div class="dropdown mr-1">
-      <button type="button" class="btn btn-outline-warning dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        OPTION4
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div>
-
-    <div class="dropdown mr-1" id="">
-      <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        OPTION5
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
+        <input type="radio" name="color" value="Black" id="Black">Black<br>
+        <input type="radio" name="color" value="Yellow" id="Yellow">Yellow<br>
+        <input type="radio" name="color" value="Amber" id="Amber">Amber<br>
+        <input type="radio" name="color" value="Brown" id="Brown">Brown
+        </div>
+        <div class="column">
+        <h2>COUNTRY</h2>
+        <input type="radio" name="country" value="Germany" id="Germany">Germany<br>
+        <input type="radio" name="country" value="Canada" id="Canada">Canada<br>
+        <input type="radio" name="country" value="USA" id="USA">USA<br>
+        <input type="radio" name="country" value="Mexico" id="Mexico">Mexico
+        </div>
+        <Button class="search" form="form1" >Search</Button>
+      </form>
     </div>
   </div>
-</div>
   <hr>
 
   {% if library_page %}
@@ -99,7 +124,7 @@
         <div class ="row mt-5 justify-content-left" id="list">
           {% for item in library_page %}
             <div class="card card-custom mx-2 mb-3">
-            <a href="{% url 'product_page' %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
+            <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
                 <p class="card-title">{{ item.beerName }}</p></a>
                 <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
              </div>
