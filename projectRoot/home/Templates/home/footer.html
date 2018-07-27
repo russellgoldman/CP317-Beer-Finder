@@ -1,3 +1,4 @@
+{% load static %}
 <footer>
 	<!-- footer -->
 	<div class="container-fluid" id="bg">
@@ -5,22 +6,22 @@
 			<div id="page-wrap">
 				<div id="bb">
 					<h5 style="text-align:center;">Beer Buddy</h5>
-					<p style="text-align:center;"><a href="home page.html">Home</a></p>
-					<p style="text-align:center;"><a href="top picks.html">Top Picks</a></p>
-					<p style="text-align:center;"><a href="add beer.html">Add a Beer</a></p>
+					<p style="text-align:center;"><a href="{% url 'home' %}">Home</a></p>
+					<p style="text-align:center;"><a href="{% url 'top_picks' %}">Top Picks</a></p>
+					<p style="text-align:center;"><a href="{% url 'add_beer' %}">Add a Beer</a></p>
 				</div>
 
 				<div id="about">
 					<h5 style="text-align:center;">About</h5>
-					<p style="text-align:center;"><a href="#">About Us</a></p>
+					<p style="text-align:center;"><a href="{% url 'about' %}">About Us</a></p>
 					<p style="text-align:center;"><a href="#">Privacy & Security</a></p>
 					<p style="text-align:center;"><a href="#">FAQ</a></p>
 				</div>
 
 				<div id="contant">
-					<h5 style="text-align:center;">Contact</h5>
-					<p style="text-align:center;">Have a question or feedback? Contact me!</p>
-					<p style="text-align:center;"><object type="image/svg+xml" data="pic/email-icon.svg" weight=15px; height=15px;></object><a href="" title="Contact me!"> Contact</a></p>
+
+					<p style="text-align:center;">Have a question or feedback? Contact Us!</p>
+					<p style="text-align:center;"><object type="image/svg+xml" data="pic/email-icon.svg" weight=15px; height=15px;></object><a href="{% url 'contact' %}">Contact Us</a></p>
 				</div>
 				<div id="follow">
 					<h5 style="text-align:center;">Follow Us</h5>

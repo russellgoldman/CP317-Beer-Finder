@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha256-wT6CFc7EKRuf7uyVfi+MQNHUzojuHN2pSw0YWFt2K5E=" crossorigin="anonymous" />
+    <link rel="icon" sizes="76x76" href="{% static 'home/images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/styling/signup.css' %}">
+</head>
+<body>
+{% include "home/navbar.html"%}
+
+  <div class='ui container'>
+  <h2>Sign up</h2>
+<div class="ui raised form segment">
+  <p>Don't have an account? Let's go ahead and get you signed up.</p>
+  <div class="two fields">
+    <div class="field">
+      <label for="first_name">First Name</label>
+      <input name='first_name' autofocus=true placeholder= 'First name' id="first_name">
+    </div>
+    <div class="field">
+      <label for="last_name">Last Name</label>
+      <input name="last_name" placeholder='Last name' id="last_name">
+    </div>
+  </div>
+   <div class="field">
+    <label for="username">Username</label>
+    <input name='username' placeholder='Username' required=true id="username">
+  </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="email" name="email" required=true placeholder='email@example.com' id="email">
+  </div>
+   <div class="field">
+     <label for="password">Password</label>
+    <input type="password" placeholder='******' autocomplete="off" id="password">
+   <em>Six characters minimum</em>
+<br>
+  </div>
+    <div class="field">
+      <label for="pass confirm">Password Confirm</label>
+    <input type="password" autocomplete="off" placeholder="******" id="pass confirm">
+  </div>
+
+  <div class="inline field">
+  <input type="checkbox" name="terms">
+      <label>I agree to the Terms and Conditions</label>
+    </div>
+      <div class="actions">
+   <input type="submit" name="commit" value="Sign up" class="ui primary button">
+  </div>
+  </div>
+
+  <div class="ui hidden error message">
+    We already have that email registered. Have you<a href="#"> forgotten your password?</a></div>
+
+
+<div class="ui center aligned segment">
+<h5>Already have an account?</h5>
+  <button onclick="location.href='{% url 'login' %}';" class="ui teal button">Log in</button>
+    <!--<p>Already have an account? <a href="{% url 'login' %}"> Log in</a></p>-->
+</div>
+  </div>
+  <br>
+  </div>
+
+{% include "home/footer.html"%}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</body>
+</html>

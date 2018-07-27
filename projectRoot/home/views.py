@@ -9,27 +9,42 @@ from . import models
 
 def home(request):
     return render(request, "home/home page.html")
-
+def login_page(request):
+    return render(request, "home/login.html")
+def signup_page(request):
+    return render(request, "home/signup.html")
+def contact_page(request):
+    return render(request, "home/contact.html")
+def about_page(request):
+    return render(request, "home/about.html")
 def article_page(request):
     return render(request, "home/article page.html")
 
 def top_picks(request):
     return render(request, "home/top picks.html")
 
-def product_page(request):
-    beer = Beer.objects.order_by('beerName')
-    beer_dict = {'product_page': beer}
-    return render(request, "home/product page.html",context=beer_dict)
+def product_page(request, name):
+    # beer = Beer.objects.order_by('beerName')
+    beer = Beer.objects.filter(beerName=name)
+    beer_dict = {'item': beer[0]}
+    return render(request, "home/product page.html", context=beer_dict)
 
 def filter_page(request):
     return render(request, "home/filter page.html")
 
 def library_page(request):
     beer_list = Beer.objects.order_by('beerName')
+    query = request.GET.get("type")
+    if query:
+        beer_list = Beer.objects.filter(containerType__containerTypeName=query)
+
+
+
     beer_dict = {'library_page':beer_list}
     return render(request, "home/library page.html", context=beer_dict)
 def add_beer(request):
     return render(request, "home/add beer.html")
+
 def form_view(request):
     # form =forms.NewBeer()
     form = forms.NewBeer(request.POST, request.FILES)

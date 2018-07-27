@@ -1,7 +1,7 @@
-#body{
-	background-image: url(background.jpg);
-}
 
+.navbar {
+    background-color: #cccccc;
+}
 
 #list {
 
@@ -16,7 +16,9 @@
 
 #bg{
 background-color:#f2f2f2;
+width: 100%;
 }
+
 
 #page-wrap div {
 	display:table-cell;
@@ -24,10 +26,7 @@ background-color:#f2f2f2;
 	padding:2%;
 	font-size:1.0vw;
 	word-wrap:break-word;
-	color:#666;
 }
-
-
 body {
 text-align: center;
 }
