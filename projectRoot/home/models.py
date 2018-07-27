@@ -2,6 +2,8 @@ from django.db import models
 from datetime import datetime
 
 
+# tables pointed to by Beer with many-to-one relationship:
+
 class Brand(models.Model):
     brandName = models.CharField(max_length=50)
     countryOfOrigin = models.CharField(max_length=50)
@@ -17,12 +19,15 @@ class BodyType(models.Model):
         return self.bodyTypeName
 
 
-class Taste(models.Model):
-    tasteName = models.CharField(max_length=50)
+class Colour(models.Model):
+    colourNum = models.IntegerField(default=0)
+    colourHex = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.tasteName
+        return str(self.colourNum)
 
+
+# tables pointed to by Beer with many-to-many relationship:
 
 class ContainerType(models.Model):
     containerTypeName = models.CharField(max_length=20)
@@ -31,36 +36,49 @@ class ContainerType(models.Model):
         return self.containerTypeName
 
 
+class Taste(models.Model):
+    tasteName = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.tasteName
+
+
 class Beer(models.Model):
     beerName = models.CharField(max_length=50)
-    beerPhoto = models.ImageField(upload_to='beers', blank=True)
-    # beerPhoto = models.ImageField(upload_to='home/media/beers/', blank=True)
+    beerPhoto = models.ImageField(upload_to='beers')
     alcoholVolume = models.FloatField(default=0.0)
-    canPrice = models.FloatField(default=0.0, blank=True, null=True)
-    bottlePrice = models.FloatField(default=0.0, blank=True, null=True)
-    kegPrice = models.FloatField(default=0.0, blank=True, null=True)
-    # reference to the Brand model (many-to-one)
+    canPrice = models.FloatField(default=0.0)
+    bottlePrice = models.FloatField(default=0.0)
+    kegPrice = models.FloatField(default=0.0)
+
+    # reference to the Brand model (many-to-one),
+    # if the Brand is deleted so will the Beer, thus on_delete=models.CASCADE,
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     # reference to the BodyType model (many-to-one)
-    # null=True to allow for Beer that has no BodyType matched to it yet
-    bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
+    # if the BodyType is deleted so will the Beer, thus on_delete=models.CASCADE
+    bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE)
+    # reference to the Colour model (many-to-one)
+    # if the Colour is deleted so will the Beer, thus on_delete=models.CASCADE
+    colour = models.ForeignKey(Colour, on_delete=models.CASCADE)
+
     # reference to the ContainerType model (many-to-many)
-    # blank=True to allow for Beer that has no ContainerType matched to it yet
-    containerType = models.ManyToManyField(ContainerType, blank=True)
+    containerType = models.ManyToManyField(ContainerType)
     # reference to the Taste model (many-to-many)
-    taste = models.ManyToManyField(Taste, blank=True)
+    taste = models.ManyToManyField(Taste)
 
     def __str__(self):
         return self.beerName
 
 
+# tables that point to Beer with many-to-one relationship:
+
 class Rating(models.Model):
     ratingValue = models.IntegerField(default=0)
-    date = models.DateTimeField(default=datetime.now, blank=True)
-    reviewText = models.TextField(blank=True, null=True)
-    # reference to the Beer model (one-to-one)
-    # null=True to allow for Beer without Rating
-    beer = models.ForeignKey(Beer, on_delete=models.CASCADE, null=True)
+    date = models.DateTimeField(default=datetime.now)
+    reviewText = models.TextField()
+    # reference to the Beer model (one-to-one),
+    # if the Beer is deleted so will the Rating, thus on_delete=models.CASCADE,
+    beer = models.ForeignKey(Beer, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.ratingValue)
