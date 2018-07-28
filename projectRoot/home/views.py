@@ -92,9 +92,7 @@ def filter_form_view(request):
             container_Type = form.cleaned_data['containerType']
             taste_a = form.cleaned_data['taste']
 
-            print(acl, brand_a, body_Type,container_Type,taste_a ,"fsdfsfsdfsfmdgldjgjdglsdj")
-
-            beer_list = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__containerTypeName=container_Type[0], taste__tasteName=taste_a[0])
+            beer_list = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
             print(beer_list)
             return render(request, 'home/results.html', {'beerList':beer_list})
     else:
