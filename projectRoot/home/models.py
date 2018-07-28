@@ -40,10 +40,10 @@ class Beer(models.Model):
     bottlePrice = models.FloatField(default=0.0, blank=True, null=True)
     kegPrice = models.FloatField(default=0.0, blank=True, null=True)
     # reference to the Brand model (many-to-one)
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, blank=True)
     # reference to the BodyType model (many-to-one)
     # null=True to allow for Beer that has no BodyType matched to it yet
-    bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE, null=True)
+    bodyType = models.ForeignKey(BodyType, on_delete=models.CASCADE, blank=True)
     # reference to the ContainerType model (many-to-many)
     # blank=True to allow for Beer that has no ContainerType matched to it yet
     containerType = models.ManyToManyField(ContainerType, blank=True)

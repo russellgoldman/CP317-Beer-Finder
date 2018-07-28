@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+{%load static%}
+<html>
+<head>
+  <!--title and icon-->
+  <title> Beer Buddy - Library </title>
+  <link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/styling/library page.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+</head>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+        input[type="radio"]{
+            vertical-align: baseline;
+        }
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 33%;
+      padding: 10px 0px 10px 10%;
+      height: 300px; /* Should be removed. Only for demonstration */
+      background-color:#bbb;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    #filter_button {
+      display: none;
+    }
+    .search{
+      padding:16px 32px;
+      font-family:helvetica;
+      font-size:16px;
+      font-weight:100;
+      color:#fff;
+      background: #587286;
+      border:0;
+      font-weight:100;
+      margin:auto;
+      display:block;
+    }
+    .search:hover{
+      padding:16px 32px;
+      font-family:helvetica;
+      font-size:16px;
+      font-weight:100;
+      color:#fff;
+      background: #000000;
+      border:0;
+      font-weight:100;
+      margin:auto;
+      display:block;
+    }
+    #form1 {
+       width: 100%;
+    }
+    </style>
+
+<script type="text/javascript">
+	function changeClass(){
+    var x = document.getElementById("filter_button");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+
+	}
+
+	</script>
+
+<body>
+
+<!--navbar-->
+
+{% include "home/navbar.html"%}
+
+<div class="container" id="con">
+
+
+  {% if beerList %}
+
+        <div class ="row mt-5 justify-content-left" id="list">
+          {% for item in beerList %}
+            <div class="card card-custom mx-2 mb-3">
+            <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
+                <p class="card-title">{{ item.beerName }}</p></a>
+                <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
+             </div>
+          {% endfor %}
+
+        </div>
+    {% endif %}
+
+
+
+
+{% include "home/footer.html"%}
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
