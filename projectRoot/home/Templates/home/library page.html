@@ -85,53 +85,20 @@
 
 {% include "home/navbar.html"%}
 
-<div class="container" id="con">
-  <Button class="search"  onclick="changeClass()">Filter</Button>
-  <!--<input type="button" onclick="location.href={% url 'add_beer' %}" value="Add Beer" />-->
-  <div class="hide_div" id="filter_button">
-    <div class="row">
-      <form action="/library_page" method="get" id="form1" >
-        <div class="column">
-        <h2>TYPE</h2>
-
-        <input type="radio" name="type"  id="Bottle" value="Bottle">Bottle<br>
-        <input type="radio" name="type"  id="Can" value="Can">Can<br>
-        <input type="radio" name="type"  id="Keg" value="Keg">Keg<br>
-        </div>
-        <div class="column">
-        <h2>COLOR</h2>
-
-        <input type="radio" name="color" value="Black" id="Black">Black<br>
-        <input type="radio" name="color" value="Yellow" id="Yellow">Yellow<br>
-        <input type="radio" name="color" value="Amber" id="Amber">Amber<br>
-        <input type="radio" name="color" value="Brown" id="Brown">Brown
-        </div>
-        <div class="column">
-        <h2>COUNTRY</h2>
-        <input type="radio" name="country" value="Germany" id="Germany">Germany<br>
-        <input type="radio" name="country" value="Canada" id="Canada">Canada<br>
-        <input type="radio" name="country" value="USA" id="USA">USA<br>
-        <input type="radio" name="country" value="Mexico" id="Mexico">Mexico
-        </div>
-        <Button class="search" form="form1" >Search</Button>
-      </form>
-    </div>
-  </div>
   <hr>
 
-  {% if library_page %}
 
-        <div class ="row mt-5 justify-content-left" id="list">
-          {% for item in library_page %}
-            <div class="card card-custom mx-2 mb-3">
-            <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
-                <p class="card-title">{{ item.beerName }}</p></a>
-                <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
-             </div>
-          {% endfor %}
+
+<div class ="row mt-5 justify-content-left" id="list">
+  {% for item in library_page %}
+  <div class="card card-custom mx-2 mb-3">
+    <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
+      <p class="card-title">{{ item.beerName }}</p></a>
+      <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
+      </div>
+  {% endfor %}
 
         </div>
-    {% endif %}
 
 
 
