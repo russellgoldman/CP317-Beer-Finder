@@ -29,9 +29,6 @@ def product_page(request, name):
     beer_dict = {'item': beer[0]}
     return render(request, "home/product page.html", context=beer_dict)
 
-def filter_page(request):
-    return render(request, "home/filter page.html")
-
 def library_page(request):
     beer_list = Beer.objects.order_by('beerName')
     query = request.GET.get("type")
@@ -42,8 +39,6 @@ def library_page(request):
 
     beer_dict = {'library_page':beer_list}
     return render(request, "home/library page.html", context=beer_dict)
-def add_beer(request):
-    return render(request, "home/add beer.html")
 
 def form_view(request):
     # form =forms.NewBeer()
@@ -82,3 +77,28 @@ def form_view(request):
     else:
         form = forms.NewBeer()
     return render(request, 'home/add beer.html', {'form':form})
+
+def filter_form_view(request):
+    form = forms.SearchBeer(request.POST)
+
+
+    if request.method == 'POST':
+        if form.is_valid():
+
+            #add form to data base, do something
+            acl = form.cleaned_data['alcoholVolume']
+            brand_a = form.cleaned_data['brand']
+            body_Type = form.cleaned_data['bodyType']
+            container_Type = form.cleaned_data['containerType']
+            taste_a = form.cleaned_data['taste']
+
+            beer_list = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
+            print(beer_list)
+            return render(request, 'home/results.html', {'beerList':beer_list})
+    else:
+        form = forms.SearchBeer()
+
+    return render(request, 'home/filter page.html', {'form':form})
+
+def results(request):
+    return render(request, 'home/results.html')

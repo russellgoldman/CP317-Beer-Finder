@@ -1,9 +1,9 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 {%load static%}
 <html>
 <head>
   <!--title and icon-->
-  <title> Beer Buddy - Library </title>
+  <title> Beer Buddy - Results</title>
   <link rel="icon" sizes="76x76" href="pic/logo.png" type="image/x-icon">
 
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -67,29 +67,28 @@
     </style>
 
 
-
-	</script>
-
 <body>
 
 <!--navbar-->
 
 {% include "home/navbar.html"%}
 
-  <hr>
+<div class="container" id="con">
 
 
+  {% if beerList %}
 
-<div class ="row mt-5 justify-content-left" id="list">
-  {% for item in library_page %}
-  <div class="card card-custom mx-2 mb-3">
-    <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
-      <p class="card-title">{{ item.beerName }}</p></a>
-      <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
-      </div>
-  {% endfor %}
+        <div class ="row mt-5 justify-content-left" id="list">
+          {% for item in beerList %}
+            <div class="card card-custom mx-2 mb-3">
+            <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
+                <p class="card-title">{{ item.beerName }}</p></a>
+                <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
+             </div>
+          {% endfor %}
 
         </div>
+    {% endif %}
 
 
 

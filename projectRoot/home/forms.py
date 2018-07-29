@@ -7,3 +7,13 @@ class NewBeer(forms.ModelForm):
         model = Beer
         fields = '__all__'
 
+class SearchBeer(forms.ModelForm):
+    class Meta():
+        model = Beer
+        fields = [
+            'alcoholVolume',
+            'brand',
+            'bodyType',
+            'containerType',
+            'taste',
+        ]
