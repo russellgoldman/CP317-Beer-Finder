@@ -14,61 +14,56 @@
 <body>
 {% include "home/navbar.html"%}
 
-  <div class='ui container'>
-  <h2>Sign up</h2>
-<div class="ui raised form segment">
-  <p>Don't have an account? Let's go ahead and get you signed up.</p>
-  <div class="two fields">
-    <div class="field">
-      <label for="first_name">First Name</label>
-      <input name='first_name' autofocus=true placeholder= 'First name' id="first_name">
-    </div>
-    <div class="field">
-      <label for="last_name">Last Name</label>
-      <input name="last_name" placeholder='Last name' id="last_name">
-    </div>
-  </div>
-   <div class="field">
-    <label for="username">Username</label>
-    <input name='username' placeholder='Username' required=true id="username">
-  </div>
-  <div class="field">
-    <label for="email">Email</label>
-    <input type="email" name="email" required=true placeholder='email@example.com' id="email">
-  </div>
-   <div class="field">
-     <label for="password">Password</label>
-    <input type="password" placeholder='******' autocomplete="off" id="password">
-   <em>Six characters minimum</em>
-<br>
-  </div>
-    <div class="field">
-      <label for="pass confirm">Password Confirm</label>
-    <input type="password" autocomplete="off" placeholder="******" id="pass confirm">
-  </div>
+  <div class="container">
 
-  <div class="inline field">
-  <input type="checkbox" name="terms">
-      <label>I agree to the Terms and Conditions</label>
-    </div>
-      <div class="actions">
-   <input type="submit" name="commit" value="Sign up" class="ui primary button">
-  </div>
-  </div>
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+        <div class="ui success message">
+          <i class="close icon"></i>
+          <div class="header">
+            Your user registration was successful.
+          </div>
+          <p>You may now log-in with the username you have chosen</p>
+        </div>
+      {% else %}
+        <div class='ui container'>
+            <h2>Sign up</h2>
+            <div class="ui raised form segment">
+                <p>Don't have an account? Let's go ahead and get you signed up.</p>
 
-  <div class="ui hidden error message">
-    We already have that email registered. Have you<a href="#"> forgotten your password?</a></div>
+                <form enctype="multipart/form-data" method="POST">
+                  {% csrf_token %}
 
+                    {% for field in user_form %}
+                        <div class="field">
+                            <label form="{{field.name}}" style="display:inline-block;">{{field.label}}</label>
+                            <div style="width: 50%;">{{field }} </div>
+                        </div>
 
-<div class="ui center aligned segment">
-<h5>Already have an account?</h5>
-  <button onclick="location.href='{% url 'login' %}';" class="ui teal button">Log in</button>
-    <!--<p>Already have an account? <a href="{% url 'login' %}"> Log in</a></p>-->
-</div>
+                    {% endfor %}
+
+                    <div class="inline field">
+                        <input type="checkbox" name="terms">
+                        <label>I agree to the Terms and Conditions</label>
+                    </div>
+                    <div class="actions">
+                        <input type="submit" name="commit" value="Register" class="ui primary button">
+                    </div>
+                    <div class="ui hidden error message">
+                        We already have that email registered. Have you<a href="#"> forgotten your password?</a>
+                    </div>
+
+                </form>
+                <div class="ui center aligned segment">
+                    <h5>Already have an account?</h5>
+                    <button onclick="location.href='{% url 'login' %}';" class="ui teal button">Log in</button>
+                </div>
+
+            </div>
+        </div>
+
+      {% endif %}
   </div>
-  <br>
-  </div>
-
 {% include "home/footer.html"%}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

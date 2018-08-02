@@ -11,31 +11,39 @@
 </head>
 <body>
 {% include "home/navbar.html"%}
-<div class="ui raised very padded center aligned text container segment">
-  <h1 class="ui header">Log in</h1>
-  <br>
-  <div class="field">
-   <div class="ui left icon input">
-  <i class="mail outline icon"></i>
-    <input type="email" name="email" placeholder="Email Address" autofocus="true">
-  </div></div>
-<br>
-    <div class="field">
-  <div class="ui left icon input">
-<i class="lock icon"></i>
-    <input type="password" name="password" placeholder="Password">
-  </div></div>
-<br>
+
+<form  method="post" >
+	{% csrf_token %}
+
+
+	<div class="ui raised very padded center aligned text container segment">
+	  <h1 class="ui header">Log in</h1>
+	  <br>
+	  <div class="field">
+		<div class="ui left icon input">
+			<i class="user outline icon"></i>
+			<input type="text" name="username" placeholder="Username" autofocus="true">
+		</div>
+	  </div>
+	  <br>
+	  <div class="field">
+		<div class="ui left icon input">
+			<i class="lock icon"></i>
+			<input type="password" name="password" placeholder="Password">
+		</div>
+	  </div>
+	  <br>
 
 
 
-  <div class="actions">
-    <button class=" ui large teal button" type="submit">Log in</button>
-  </div>
-  <br>
-    <p>Don't have an account? <a href="{% url 'signup' %}"> Sign up </a></p>
-</div>
+	  <div class="actions">
+		<button class=" ui large teal button" type="submit">Log in</button>
+	  </div>
+		<br>
+		    <p>Don't have an account? <a href="{% url 'signup_page' %}"> Sign up </a></p>
+	</div>
 
+	</form>
 
 {% include "home/footer.html"%}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

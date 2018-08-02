@@ -25,13 +25,22 @@
 					<a class="dropdown-item" href="#">Something else here</a>
 
 				</div>
+            </li>
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'library_page' %}">All Products<span class="sr-only">(current)</span></a>
 			</li>
+
+			{% if user.is_authenticated %}
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'add_beer' %}">Add Beer<span class="sr-only">(current)</span></a>
 			</li>
-			</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="sign out alternate icon"></i>Logout</a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="sign in alternate icon"></i>LogIn</a></li>
+
+            {% endif %}
+
+
 		</ul>
 	</div>
 </nav>
