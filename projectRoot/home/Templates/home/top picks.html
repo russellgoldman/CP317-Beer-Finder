@@ -22,81 +22,19 @@
 
 
 	<center>
-		<!--
-            <div class="picks" id="p1">
-                <h1 class="display-1" id="rank">Top1</h1>
-                <div class="img"><img src="Corona Extra.png" width="300" height="300" class="img-thumbnail"></div>
-                <div class="info">
-                    <h1>Some beer</h1>
-                    <p class="lead">it tastes really good!</p>
-                    <button type="button" class="btn btn-outline-danger">Learn more</button>
-                </div>
-            </div>
-        /-->
+		{% for index, item in beerList %}
+			<div class="picks" id="p{{index}}">
+				<h1 class="display-1" id="rank">Top pick # {{index}} </h1>
+				<div class="card card-custom mx-2 mb-3">
+				<a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="300" height="300" class="img-thumbnail">
+					<p class="card-title">{{ item.beerName }}</p></a>
+					<p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
 
-		<div class="picks" id="p1">
-
-			<div class="t1info">
-				<h1 class="display-1" id="rank">Top1</h1>
-				<hr>
-				<h1>Some beer</h1>
-				<p class="lead">it tastes really good!</p>
-				<button type="button" class="btn btn-outline-danger">Learn more</button>
+				 </div>
 			</div>
-			<div class="img"><img src="pic/corona.jpg" width="470" height="470" class="img-thumbnail"></div>
+          {% endfor %}
 
 
-		</div>
-
-		<div class="picks" id="p2">
-			<h1 class="display-3" id="rank">Top2</h1>
-			<div class="img"><img src="pic/corona.jpg" width="300" height="300" class="img-thumbnail"></div>
-			<div class="info">
-				<h1>Some beer</h1>
-				<p class="lead">it tastes really good!</p>
-				<button type="button" class="btn btn-outline-info">Learn more</button>
-			</div>
-		</div>
-
-		<div class="picks" id="p3">
-			<h1 class="display-3" id="rank">Top3</h1>
-			<div class="img"><img src="pic/corona.jpg" width="300" height="300" class="img-thumbnail"></div>
-			<div class="info">
-				<h1>Some beer</h1>
-				<p class="lead">it tastes really good!</p>
-				<button type="button" class="btn btn-outline-warning">Learn more</button>
-			</div>
-		</div>
-
-		<div class="picks" id="p4">
-			<h1 class="display-3" id="rank">Top4</h1>
-			<div class="img"><img src="pic/corona.jpg" width="300" height="300" class="img-thumbnail"></div>
-			<div class="info">
-				<h1>Some beer</h1>
-				<p class="lead">it tastes really good!</p>
-				<button type="button" class="btn btn-outline-success">Learn more</button>
-			</div>
-		</div>
-
-		<div class="picks" id="p5">
-			<h1 class="display-3" id="rank">Top5</h1>
-			<div class="img"><img src="pic/corona.jpg" width="300" height="300" class="img-thumbnail"></div>
-			<div class="info">
-				<h1>Some beer</h1>
-				<p class="lead">it tastes really good!</p>
-				<button type="button" class="btn btn-outline-primary">Learn more</button>
-			</div>
-		</div>
-
-		<div class="picks" id="p6">
-			<h1 class="display-3" id="rank">Top6</h1>
-			<div class="img"><img src="pic/corona.jpg" width="300" height="300" class="img-thumbnail"></div>
-			<div class="info">
-				<h1>Some beer</h1>
-				<p class="lead">it tastes really good!</p>
-				<button type="button" class="btn btn-outline-dark">Learn more</button>
-			</div>
-		</div>
 
 	</center>
 
