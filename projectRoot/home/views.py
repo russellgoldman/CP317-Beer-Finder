@@ -4,15 +4,59 @@ from . import forms
 from .models import Beer, ContainerType, Taste, Brand
 import django
 from . import models
+from home.forms import UserForm
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth import authenticate, login, logout
+
 #from django.core.context_processors import csrf
 # Create your views here.
 
 def home(request):
     return render(request, "home/home page.html")
 def login_page(request):
-    return render(request, "home/login.html")
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('home'))
+            else:
+                HttpResponse("Account not active!")
+        else:
+            print("someone tried to login and failed!")
+            print("username: {} and password {}".format(username, password))
+            return HttpResponse("Invalid login details")
+    else:
+
+        return render(request, 'home/login.html', {})
+    # return render(request, "home/login.html")
 def signup_page(request):
-    return render(request, "home/signup.html")
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+
+        if user_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            registered = True
+        else:
+            print(user_form.errors)
+    else:
+        user_form = UserForm()
+
+    return render(request, 'home/signup.html', {'user_form': user_form, 'registered': registered})
+
+@login_required
+def user_logout(request):
+	logout(request)
+	return HttpResponseRedirect(reverse('home'))
 def contact_page(request):
     return render(request, "home/contact.html")
 def about_page(request):
@@ -39,11 +83,10 @@ def library_page(request):
 
     beer_dict = {'library_page':beer_list}
     return render(request, "home/library page.html", context=beer_dict)
-
+@login_required(login_url='/login/')
 def form_view(request):
-    # form =forms.NewBeer()
+
     form = forms.NewBeer(request.POST, request.FILES)
-    # form = forms.FormName()
 
     if request.method == 'POST':
         form = forms.NewBeer(request.POST, request.FILES)
