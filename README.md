@@ -2,7 +2,7 @@
 
 ## Inspiration:
 Inspiration:
-Have you ever had an idea of what kind of beer you wanted, maybe a dark yellow beer with a medium body and an approximately 5% alcohol content, but you didn’t know what brand would be best linked to your criteria? 
+Have you ever had an idea of what kind of beer you wanted, maybe a dark yellow beer with a medium body and an approximately 5% alcohol content, but you didn’t know what brand would be best linked to your criteria?
 
 Our web application hopes to solve this by asking for user search criteria and returning a list of beers that match their specifications in order from ***most alike*** to ***least alike***.
 
@@ -38,7 +38,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 - Zhixian Li (Catherine)
 - Abdisalan Mohamed Abdi
 
-### Bootstrap / CSS Styling 
+### Bootstrap / CSS Styling
 - Ni Yang (Nina)
 - Yuting He
 - Franchesco Livado
@@ -63,11 +63,28 @@ Our web application hopes to solve this by asking for user search criteria and r
 - Wen Han Tang
 
 ## Requirements Document
-- [Requirements document](https://russellgoldman.github.io/CP317-Requirements-Document/ "Requirements Document")
-- [GitHub repository for the Bootstrap build of the requirements document](https://github.com/russellgoldman/CP317-Requirements-Document "GitHub Repository")
+- [Requirements document](https://russellgoldman.github.io/CP317-Requirements-Document/)
+- [GitHub repository](https://github.com/russellgoldman/CP317-Requirements-Document)
 
-## Installation:
-To run the program, you will need to unfreeze the virtual environment from the requirements.txt file and install it on your local system. To do so, enter the following in the terminal.
+## Analysis Document
+- [Requirements document](https://russellgoldman.github.io/CP317-Analysis-Document/)
+- [GitHub repository](https://github.com/russellgoldman/CP317-Analysis-Document)
+
+## Design Document
+- [Requirements document](https://russellgoldman.github.io/CP317-Design-Document/)
+- [GitHub repository](https://github.com/russellgoldman/CP317-Design-Document)
+
+## Installation
+Clone this Git repository and unfreeze the requirements.txt file to gain access to a venv depencency folder.
+
 ```shell
+source venv/bin/activate
 pip3 install -r requirements.txt
+```
+
+## Updating Dependencies
+After updating dependencies on your venv, you **MUST** re-freeze the requirements.txt file.
+```shell
+source venv/bin/activate
+pip3 freeze > requirements.txt
 ```
