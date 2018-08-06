@@ -67,11 +67,11 @@ Our web application hopes to solve this by asking for user search criteria and r
 - [GitHub repository](https://github.com/russellgoldman/CP317-Requirements-Document)
 
 ## Analysis Document
-- [Requirements document](https://russellgoldman.github.io/CP317-Analysis-Document/)
+- [Analysis document](https://russellgoldman.github.io/CP317-Analysis-Document/)
 - [GitHub repository](https://github.com/russellgoldman/CP317-Analysis-Document)
 
 ## Design Document
-- [Requirements document](https://russellgoldman.github.io/CP317-Design-Document/)
+- [Design document](https://russellgoldman.github.io/CP317-Design-Document/)
 - [GitHub repository](https://github.com/russellgoldman/CP317-Design-Document)
 
 ## Installation
