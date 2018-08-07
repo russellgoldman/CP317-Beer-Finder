@@ -12,16 +12,16 @@ Our web application hopes to solve this by asking for user search criteria and r
 * **Styling:** CSS / Bootstrap
 
 #### Back-end:
-* **Server:** Django
+* **Server:** Heroku
 * **Database:** PostgreSQL (built-in with Django)
-* **API:** Django GET and POST definitions for accessing/modifying database content
+* **API:** Flask definitions for accessing/modifying database content
 * **Data Structures:** List, Queue, Stack
 * **Testing:** PyTest
 
 #### Connection between Front and Back-ends:
 * Django has a templating system called Jinga which allows for the dynamic conditional rendering of HTML files
 * All CSS and JS files are contained in a special folder named *static* where they can be referenced within the HTML file
-* Django is responsible for hosting the web application, accessing and modifying our PostgreSQL database, and with the Django REST Framework extension, it can handle API requests so the front-end client can access/modify data from our back-end
+* Django is responsible for hosting the web application, accessing and modifying our PostgreSQL database, and with the Flask Framework, it can handle API requests so the front-end client can access/modify data from our back-end
 * JS is responsible for further manipulation of the HTML Document Object Model (DOM) that cannot be handed by DTL
 * CSS and Bootstrap are used for styling
 
