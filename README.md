@@ -26,6 +26,9 @@ Our web application hopes to solve this by asking for user search criteria and r
 * JS is responsible for further manipulation of the HTML Document Object Model (DOM) that cannot be handed by DTL
 * CSS and Bootstrap are used for styling
 
+## Backend API:
+[Backend API repository](https://github.com/russellgoldman/CP317-Beer-Finder-API)
+
 ## Team Members
 ### Lead Developers
 - Russell Goldman
