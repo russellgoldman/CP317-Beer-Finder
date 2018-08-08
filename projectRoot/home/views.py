@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from . import forms
-from .models import Beer, ContainerType, Taste, Brand
+from .models import Beer, Rating
 import django
 from . import models
 from home.forms import UserForm
@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.db.models import Avg
 
 #from django.core.context_processors import csrf
 # Create your views here.
@@ -65,10 +66,40 @@ def article_page(request):
     return render(request, "home/article page.html")
 
 def top_picks(request):
-    return render(request, "home/top picks.html")
+    # get list of beers
+    beers = Beer.objects.all()
+
+    # create 2D list with inner lists consisting of [beer, average rating]
+    beers_ratings = []
+    for i in range(len(beers)):
+        inner_list = []
+        inner_list.append(beers[i])
+        rating_dict = Rating.objects.filter(beer__beerName = beers[i]).aggregate(Avg("ratingValue"))
+        if rating_dict['ratingValue__avg'] is None:
+            inner_list.append(0)
+        else:
+            inner_list.append(rating_dict['ratingValue__avg'])
+        beers_ratings.append(inner_list)
+
+    # sort 2D list using insertion sort for efficiency
+    n = len(beers_ratings)
+    for i in range(1, n):
+        save = beers_ratings[i]
+        j = i - 1
+        while j >= 0 and beers_ratings[j][1] > save[1]:
+            beers_ratings[i] = beers_ratings[j]
+            j -= 1
+            beers_ratings[j + 1] = save
+
+    # create final list of sorted beers
+    beer_list = []
+    for item in beers_ratings:
+        beer_pair = beers_ratings.pop(-1)
+        beer_list.append(beer_pair[0])
+
+    return render(request, "home/top picks.html", {'beerList': enumerate(beer_list, start=1)})
 
 def product_page(request, name):
-    # beer = Beer.objects.order_by('beerName')
     beer = Beer.objects.filter(beerName=name)
     beer_dict = {'item': beer[0]}
     return render(request, "home/product page.html", context=beer_dict)
@@ -135,9 +166,14 @@ def filter_form_view(request):
             container_Type = form.cleaned_data['containerType']
             taste_a = form.cleaned_data['taste']
 
-            beer_list = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
-            print(beer_list)
-            return render(request, 'home/results.html', {'beerList':beer_list})
+            beerlst = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
+
+            beer_list = []
+
+            for beer in beerlst:
+                if beer not in beer_list:
+                    beer_list.append(beer)
+            return render(request, 'home/results.html', {'beerList': beer_list})
     else:
         form = forms.SearchBeer()
 
