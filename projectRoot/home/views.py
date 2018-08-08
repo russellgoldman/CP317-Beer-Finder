@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from . import forms
-from .models import Beer, ContainerType, Taste, Brand
+from .models import Beer, Rating
 import django
 from . import models
 from home.forms import UserForm
@@ -65,10 +65,15 @@ def article_page(request):
     return render(request, "home/article page.html")
 
 def top_picks(request):
-    return render(request, "home/top picks.html")
+    rating_list = Rating.objects.order_by('-ratingValue')
+    print(rating_list)
+    beer_list = []
+    for rating in rating_list:
+        if rating.beer not in beer_list:
+            beer_list.append(rating.beer)
+    return render(request, "home/top picks.html", {'beerList': enumerate(beer_list, start=1)})
 
 def product_page(request, name):
-    # beer = Beer.objects.order_by('beerName')
     beer = Beer.objects.filter(beerName=name)
     beer_dict = {'item': beer[0]}
     return render(request, "home/product page.html", context=beer_dict)
@@ -135,9 +140,14 @@ def filter_form_view(request):
             container_Type = form.cleaned_data['containerType']
             taste_a = form.cleaned_data['taste']
 
-            beer_list = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
-            print(beer_list)
-            return render(request, 'home/results.html', {'beerList':beer_list})
+            beerlst = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
+
+            beer_list = []
+
+            for beer in beerlst:
+                if beer not in beer_list:
+                    beer_list.append(beer)
+            return render(request, 'home/results.html', {'beerList': beer_list})
     else:
         form = forms.SearchBeer()
 
