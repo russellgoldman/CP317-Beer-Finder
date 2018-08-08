@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 import json
+import requests
 
 #from django.core.context_processors import csrf
 # Create your views here.
@@ -142,7 +143,9 @@ def filter_form_view(request):
             for beer in beerlst:
                 if beer not in beer_list:
                     beer_list.append(beer)
-            print(beer_list)
+
+            searchResults = requests.post("https://beer-finder-app.herokuapp.com/search/results", data=filterObj)
+            print(searchResults)
             return render(request, 'home/results.html', {'beerList': beer_list})
     else:
         form = forms.SearchBeer()
