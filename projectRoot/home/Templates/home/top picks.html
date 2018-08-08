@@ -26,7 +26,7 @@
 			<div class="picks" id="p{{index}}">
 				<h1 class="display-1" id="rank">Top pick # {{index}} </h1>
 				<div class="card card-custom mx-2 mb-3">
-				<a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="300" height="300" class="img-thumbnail">
+				<a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" id="mainImg" src ="/media/{{ item.beerPhoto }}" width="300" height="300" class="img-thumbnail">
 					<p class="card-title">{{ item.beerName }}</p></a>
 					<p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
 

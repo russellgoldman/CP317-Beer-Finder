@@ -61,10 +61,13 @@ h1 {
 	padding-left: 30px;
 }
 
-.img {
+img {
 	display: table-cell;
 	width: 20%;
-	padding: 10px;
+}
+
+.img-thumbnail {
+  width: 20%;
 }
 
 .info {

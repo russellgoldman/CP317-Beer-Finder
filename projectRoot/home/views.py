@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
+import json
 
 #from django.core.context_processors import csrf
 # Create your views here.
@@ -97,9 +98,7 @@ def form_view(request):
         form = forms.NewBeer(request.POST, request.FILES)
 
         if form.is_valid():
-
             #add form to data base, do something
-
             beer_name = form.cleaned_data['beerName']
             photo = form.cleaned_data['beerPhoto']
             acl = form.cleaned_data['alcoholVolume']
@@ -128,29 +127,14 @@ def form_view(request):
 
 def filter_form_view(request):
     form = forms.SearchBeer(request.POST)
-
-
     if request.method == 'POST':
         if form.is_valid():
-
-            #add form to data base, do something
+            filterObj = makeFilterObj(form)
             acl = form.cleaned_data['alcoholVolume']
             brand_a = form.cleaned_data['brand']
             body_Type = form.cleaned_data['bodyType']
             container_Type = form.cleaned_data['containerType']
             taste_a = form.cleaned_data['taste']
-
-
-            filterDict = {}
-            filterDict[alc] = alc
-            filterDict[brand_a] = brand_a
-            filterDict[body_Type] = body_Type
-            filterDict[container_Type] = container_Type
-            filterDict[taste_a] = taste_a
-
-
-
-
             beerlst = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
 
             beer_list = []
@@ -158,6 +142,7 @@ def filter_form_view(request):
             for beer in beerlst:
                 if beer not in beer_list:
                     beer_list.append(beer)
+            print(beer_list)
             return render(request, 'home/results.html', {'beerList': beer_list})
     else:
         form = forms.SearchBeer()
@@ -166,3 +151,35 @@ def filter_form_view(request):
 
 def results(request):
     return render(request, 'home/results.html')
+
+def makeFilterObj(form):
+    #add form to data base, do something
+    acl = form.cleaned_data['alcoholVolume']
+    brand_a = form.cleaned_data['brand']
+    body_Type = form.cleaned_data['bodyType']
+    container_Type = form.cleaned_data['containerType']
+    taste_a = form.cleaned_data['taste']
+
+    containerObjects = list(container_Type)
+    containers = []
+    for container in containerObjects:
+        containers.append(container.containerTypeName)
+
+    tasteObjects = list(taste_a)
+    tastes = []
+    for taste in tasteObjects:
+        tastes.append(taste.tasteName)
+
+    print(containers)
+    print(tastes)
+    filterDict = {}
+    filterDict['alcoholVolume'] = acl
+    filterDict['brandName'] = brand_a.brandName
+    #filterDict['countryOfOrigin'] = country_Of_Origin
+    filterDict['bodyTypeName'] = body_Type.bodyTypeName
+    filterDict['containerType'] = containers
+    filterDict['taste'] = tastes
+
+    strObj = json.dumps(filterDict)
+    print(strObj)
+    return strObj
