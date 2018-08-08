@@ -140,6 +140,17 @@ def filter_form_view(request):
             container_Type = form.cleaned_data['containerType']
             taste_a = form.cleaned_data['taste']
 
+
+            filterDict = {}
+            filterDict[alc] = alc
+            filterDict[brand_a] = brand_a
+            filterDict[body_Type] = body_Type
+            filterDict[container_Type] = container_Type
+            filterDict[taste_a] = taste_a
+
+
+
+
             beerlst = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
 
             beer_list = []
