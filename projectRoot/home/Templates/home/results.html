@@ -77,10 +77,10 @@
 <div class="container" id="con">
 
 
-  {% if beerList %}
+  {% if beerResults %}
 
         <div class ="row mt-5 justify-content-left" id="list">
-          {% for item in beerList %}
+          {% for item in beerResults %}
             <div class="card card-custom mx-2 mb-3">
             <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
                 <p class="card-title">{{ item.beerName }}</p></a>

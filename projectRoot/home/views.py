@@ -139,14 +139,14 @@ def filter_form_view(request):
             beerlst = Beer.objects.filter(alcoholVolume=acl, brand__brandName=brand_a, bodyType__bodyTypeName=body_Type, containerType__in=container_Type, taste__in=taste_a)
 
             beer_list = []
-
             for beer in beerlst:
                 if beer not in beer_list:
                     beer_list.append(beer)
 
-            searchResults = requests.post("https://beer-finder-app.herokuapp.com/search/results", data=filterObj)
-            print(searchResults)
-            return render(request, 'home/results.html', {'beerList': beer_list})
+            r = requests.post("https://beer-finder-app.herokuapp.com/search/results", json=filterObj)
+            searchResults = r.json()
+            print(searchResults['accuracy'])
+            return render(request, 'home/results.html', {'accuracy': searchResults['accuracy'], 'beers': searchResults['beers']})
     else:
         form = forms.SearchBeer()
 
@@ -173,8 +173,6 @@ def makeFilterObj(form):
     for taste in tasteObjects:
         tastes.append(taste.tasteName)
 
-    print(containers)
-    print(tastes)
     filterDict = {}
     filterDict['alcoholVolume'] = acl
     filterDict['brandName'] = brand_a.brandName
@@ -183,6 +181,4 @@ def makeFilterObj(form):
     filterDict['containerType'] = containers
     filterDict['taste'] = tastes
 
-    strObj = json.dumps(filterDict)
-    print(strObj)
-    return strObj
+    return filterDict
