@@ -85,15 +85,15 @@ def top_picks(request):
     n = len(beers_ratings)
     for i in range(1, n):
         save = beers_ratings[i]
-        j = i - 1
-        while j >= 0 and beers_ratings[j][1] > save[1]:
-            beers_ratings[i] = beers_ratings[j]
+        j = i
+        while j > 0 and beers_ratings[j-1][1] > save[1]:
+            beers_ratings[j] = beers_ratings[j-1]
             j -= 1
-            beers_ratings[j + 1] = save
+            beers_ratings[j] = save
 
     # create final list of sorted beers
     beer_list = []
-    for item in beers_ratings:
+    for i in range(len(beers_ratings)):
         beer_pair = beers_ratings.pop(-1)
         beer_list.append(beer_pair[0])
 
