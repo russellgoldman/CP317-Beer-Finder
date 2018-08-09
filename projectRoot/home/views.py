@@ -86,8 +86,6 @@ def library_page(request):
     if query:
         beer_list = Beer.objects.filter(containerType__containerTypeName=query)
 
-
-
     beer_dict = {'library_page':beer_list}
     return render(request, "home/library page.html", context=beer_dict)
 @login_required(login_url='/login/')
