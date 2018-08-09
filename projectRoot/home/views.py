@@ -144,7 +144,7 @@ def filter_form_view(request):
             r = requests.post("https://beer-finder-app.herokuapp.com/search/results", json=filterObj)
             searchResults = r.json()
             data = zip(searchResults['accuracy'], searchResults['beers'])
-            print(data)
+            #print(data)
             #for accuracy, beer in data:
             #    print(accuracy)
             #    print(beer['brandName'])
