@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 {%load static%}
+{% load mathfilters %}
 <html>
 <head>
   <!--title and icon-->
@@ -77,14 +78,15 @@
 <div class="container" id="con">
 
 
-  {% if beerResults %}
+  {% if data %}
 
         <div class ="row mt-5 justify-content-left" id="list">
-          {% for item in beerResults %}
+          {% for accuracy, beer in data %}
             <div class="card card-custom mx-2 mb-3">
-            <a href="{% url 'product_page' item.beerName %}"><img class="card-img-top" src ="/media/{{ item.beerPhoto }}" width="200" height="200" class="img-thumbnail">
-                <p class="card-title">{{ item.beerName }}</p></a>
-                <p class="card-text"><img src="{% static 'home/images/money.png' %}" width="30" height="30" alt="">{{ item.canPrice }}</p>
+            <!--<a href="{% url 'product_page' beer.brandName %}">-->
+            <img class="card-img-top" src ="/media/{{ beer.beerPhoto }}" width="200" height="200" class="img-thumbnail">
+                <p class="card-title">{{ beer.brandName }}</p></a>
+                <p class="card-text">{{ accuracy|mul:100|floatformat:1 }}% match</p>
              </div>
           {% endfor %}
 

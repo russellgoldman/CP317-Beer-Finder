@@ -76,7 +76,7 @@ def top_picks(request):
     return render(request, "home/top picks.html", {'beerList': enumerate(beer_list, start=1)})
 
 def product_page(request, name):
-    beer = Beer.objects.filter(beerName=name)
+    beer = Beer.objects.filter(brand=name)
     beer_dict = {'item': beer[0]}
     return render(request, "home/product page.html", context=beer_dict)
 
@@ -145,8 +145,12 @@ def filter_form_view(request):
 
             r = requests.post("https://beer-finder-app.herokuapp.com/search/results", json=filterObj)
             searchResults = r.json()
-            print(searchResults['accuracy'])
-            return render(request, 'home/results.html', {'accuracy': searchResults['accuracy'], 'beers': searchResults['beers']})
+            data = zip(searchResults['accuracy'], searchResults['beers'])
+            #print(data)
+            #for accuracy, beer in data:
+            #    print(accuracy)
+            #    print(beer['brandName'])
+            return render(request, 'home/results.html', {'data': data})
     else:
         form = forms.SearchBeer()
 
