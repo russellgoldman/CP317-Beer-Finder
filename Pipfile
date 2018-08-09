@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
