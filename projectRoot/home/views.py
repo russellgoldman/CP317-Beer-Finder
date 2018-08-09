@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 import json
 import requests
+from django.db.models import Avg
 
 #from django.core.context_processors import csrf
 # Create your views here.
@@ -67,12 +68,37 @@ def article_page(request):
     return render(request, "home/article page.html")
 
 def top_picks(request):
-    rating_list = Rating.objects.order_by('-ratingValue')
-    print(rating_list)
+    # get list of beers
+    beers = Beer.objects.all()
+
+    # create 2D list with inner lists consisting of [beer, average rating]
+    beers_ratings = []
+    for i in range(len(beers)):
+        inner_list = []
+        inner_list.append(beers[i])
+        rating_dict = Rating.objects.filter(beer__beerName = beers[i]).aggregate(Avg("ratingValue"))
+        if rating_dict['ratingValue__avg'] is None:
+            inner_list.append(0)
+        else:
+            inner_list.append(rating_dict['ratingValue__avg'])
+        beers_ratings.append(inner_list)
+
+    # sort 2D list using insertion sort for efficiency
+    n = len(beers_ratings)
+    for i in range(1, n):
+        save = beers_ratings[i]
+        j = i
+        while j > 0 and beers_ratings[j-1][1] > save[1]:
+            beers_ratings[j] = beers_ratings[j-1]
+            j -= 1
+            beers_ratings[j] = save
+
+    # create final list of sorted beers
     beer_list = []
-    for rating in rating_list:
-        if rating.beer not in beer_list:
-            beer_list.append(rating.beer)
+    for i in range(len(beers_ratings)):
+        beer_pair = beers_ratings.pop(-1)
+        beer_list.append(beer_pair[0])
+
     return render(request, "home/top picks.html", {'beerList': enumerate(beer_list, start=1)})
 
 def product_page(request, name):
