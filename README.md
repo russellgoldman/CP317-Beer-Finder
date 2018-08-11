@@ -78,7 +78,6 @@ Our web application hopes to solve this by asking for user search criteria and r
 
 ## Installation
 Clone this Git repository and unfreeze the requirements.txt file to gain access to a venv depencency folder.
-
 ```shell
 source venv/bin/activate
 pip3 install -r requirements.txt
@@ -90,3 +89,12 @@ After updating dependencies on your venv, you **MUST** re-freeze the requirement
 source venv/bin/activate
 pip3 freeze > requirements.txt
 ```
+
+## Running the Localhost Server
+Open a Console program such as Terminal (Mac / Linux) or Windows Powershell (Windows). Use the *cd* (change directory) and *ls* (short listing) commands to move into the Git repository. From the root of the project, enter
+ ```shell
+ cd projectRoot
+ source venv/bin/activate
+ python3 manage.py runserver
+ ```
+This will activate the localhost server and you will be able to view the application on the port displayed in the Console script.
