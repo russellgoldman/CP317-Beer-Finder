@@ -30,7 +30,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 
 ## Team Members
 ### Lead Developers
-- Russell Goldman
+- [Russell Goldman](https://docs.google.com/document/d/1Ofe3SwP-fMGoyoAjtXW2wwfmeVkcQehC5zSWGFeTBaA/edit?usp=sharing)
 - Tauqeer Choudhry
 - Don Vo
 
