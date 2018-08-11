@@ -98,4 +98,5 @@ Open a Console program such as Terminal (Mac / Linux) or Windows Powershell (Win
  python3 manage.py runserver
  ```
 This will activate the localhost server and you will be able to view the application on the port displayed in the Console script.
+
 **Note**: For this to work, you must have *python3* installed on your local machine path.
