@@ -1,5 +1,10 @@
 # CP317 Beer Finder Web App
 
+## Author Information:
+- **Designed by:** CP317 Software Engineering Students
+- **Date Started:** May 5th, 2018
+- **Date Completed:** August 14th, 2018
+
 ## Inspiration:
 Have you ever had an idea of what kind of beer you wanted, maybe a dark yellow beer with a medium body and an approximately 5% alcohol content, but you didn’t know what brand would be best linked to your criteria?
 
