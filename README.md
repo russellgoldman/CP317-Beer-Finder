@@ -59,10 +59,10 @@ Our web application hopes to solve this by asking for user search criteria and r
 - Peiyu Lu (Lucy)
 
 ### Views and Routing
-- Abraham Banka
-- Zizheng Huang
-- Mengdan Wan
-- Jerry Haq
+- ~Abraham Banka~
+- ~Zizheng Huang~
+- ~Mengdan Wan~
+- ~Jerry Haq~
 
 ### API Developers
 - Jeremy Lickers
