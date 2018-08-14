@@ -28,8 +28,10 @@ Our web application hopes to solve this by asking for user search criteria and r
 [Backend API repository](https://github.com/russellgoldman/CP317-Beer-Finder-API)
 
 ## Team Members
+[Contributions Document](https://docs.google.com/spreadsheets/d/1OM_BYqcARu_l3H8tbjbGLzDzcIXs0oqbfTc1smgX3_c/edit?usp=sharing)
+
 ### Lead Developers
-- [Russell Goldman](https://docs.google.com/document/d/1Ofe3SwP-fMGoyoAjtXW2wwfmeVkcQehC5zSWGFeTBaA/edit?usp=sharing)
+- Russell Goldman
 - Tauqeer Choudhry
 - Don Vo
 
