@@ -1,5 +1,10 @@
 # CP317 Beer Finder Web App
 
+## Author Information:
+- **Designed by:** CP317 Software Engineering Students
+- **Date Started:** May 5th, 2018
+- **Date Completed:** August 14th, 2018
+
 ## Inspiration:
 Have you ever had an idea of what kind of beer you wanted, maybe a dark yellow beer with a medium body and an approximately 5% alcohol content, but you didn’t know what brand would be best linked to your criteria?
 
@@ -16,7 +21,6 @@ Our web application hopes to solve this by asking for user search criteria and r
 * **Database:** PostgreSQL (built-in with Django)
 * **API:** Flask definitions for accessing/modifying database content
 * **Data Structures:** List, Queue, Stack
-* **Testing:** PyTest
 
 #### Connection between Front and Back-ends:
 * Django has a templating system called Jinga which allows for the dynamic conditional rendering of HTML files
@@ -29,6 +33,8 @@ Our web application hopes to solve this by asking for user search criteria and r
 [Backend API repository](https://github.com/russellgoldman/CP317-Beer-Finder-API)
 
 ## Team Members
+[Contributions Document](https://docs.google.com/spreadsheets/d/1OM_BYqcARu_l3H8tbjbGLzDzcIXs0oqbfTc1smgX3_c/edit?usp=sharing)
+
 ### Lead Developers
 - Russell Goldman
 - Tauqeer Choudhry
@@ -78,7 +84,6 @@ Our web application hopes to solve this by asking for user search criteria and r
 
 ## Installation
 Clone this Git repository and unfreeze the requirements.txt file to gain access to a venv depencency folder.
-
 ```shell
 source venv/bin/activate
 pip3 install -r requirements.txt
@@ -90,3 +95,14 @@ After updating dependencies on your venv, you **MUST** re-freeze the requirement
 source venv/bin/activate
 pip3 freeze > requirements.txt
 ```
+
+## Running the Localhost Server
+Open a Console program such as Terminal (Mac / Linux) or Windows Powershell (Windows). Use the *cd* (change directory) and *ls* (short listing) commands to move into the Git repository. From the root of the project, enter
+ ```shell
+ cd projectRoot
+ source venv/bin/activate
+ python3 manage.py runserver
+ ```
+This will activate the localhost server and you will be able to view the application on the port displayed in the Console script.
+
+**Note**: For this to work, you must have *python3* installed on your local machine path.
