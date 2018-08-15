@@ -34,6 +34,7 @@ Our web application hopes to solve this by asking for user search criteria and r
 
 ## Team Members
 [Contributions Document](https://docs.google.com/spreadsheets/d/1OM_BYqcARu_l3H8tbjbGLzDzcIXs0oqbfTc1smgX3_c/edit?usp=sharing)
+[SQA Document](https://docs.google.com/spreadsheets/d/1xSQd_DtZd7Sa7y5RtQH878LMPdMWZwxC0SLm5T8MErE/edit?usp=sharing)
 
 ### Lead Developers
 - Russell Goldman
