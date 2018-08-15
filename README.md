@@ -100,8 +100,8 @@ pip3 freeze > requirements.txt
 ## Running the Localhost Server
 Open a Console program such as Terminal (Mac / Linux) or Windows Powershell (Windows). Use the *cd* (change directory) and *ls* (short listing) commands to move into the Git repository. From the root of the project, enter
  ```shell
- cd projectRoot
  source venv/bin/activate
+ cd projectRoot
  python3 manage.py runserver
  ```
 This will activate the localhost server and you will be able to view the application on the port displayed in the Console script.
