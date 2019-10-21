@@ -32,5 +32,5 @@ SQLAlchemy==1.2.10
 urllib3==1.23
 virtualenv==15.2.0
 virtualenv-clone==0.3.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 whitenoise==3.3.1
